@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>User Login</title>
+  </head>
+  <body>
+    <h1>User Login</h1>
+    {% if form.has_errors %}
+      <p>Your username and password didn't match. 
+        Please try again.</p>
+    {% endif %}
+    <form method="post" action=".">
+	{% csrf_token %}
+      <p><label for="id_username">Username:</label>
+        <input type="text" name="username" placeholder="Username"/>
+      <p><label for="id_password">Password:</label>
+         <input type="password" name="password" placeholder="Password"/>
+      <input type="hidden" name="next" value="/" />
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>
