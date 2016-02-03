@@ -43,3 +43,9 @@ def Login(request):
 		else:
 			return HttpResponseRedirect('')
 	return render( request, 'constellation/login.html', {'redirect_to' : next} )
+
+#First time user registration page
+def Register(request):
+   context = (
+   )
+   return render( request, 'constellation/register.html', context )
