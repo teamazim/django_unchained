@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+    {% block customstylesheet %}
+	<!-- Custom styles for this template -->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/justified-nav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'constellation/css/sidebar.css' %}" />
+
+	{% endblock %}
+	
+	{% block content %}
+
+    <div id="wrapper">
+        <a href="#" class="btn btn-primary" id="toggle-sidebar">             
+            <span class="icon-bar">-</span>
+            <span class="icon-bar">-</span>
+            <span class="icon-bar">-</span> 
+        </a>
+
+        <div class="container">
+            <div id="sidebar-wrapper" >
+                <ul class="sidebar-nav">
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+
+              <!-- The justified navigation menu is meant for single line per list item.
+                   Multiple lines will require custom code not provided by Bootstrap. -->
+              <div class="masthead">
+                <h3 class="text-muted">Constellation</h3>
+                <nav>
+                  <ul class="nav nav-justified">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+            <div id="page-content-wrapper">
+              <!-- Jumbotron -->
+
+              <div class="jumbotron">
+                {% if user.username %}
+                    <h1>Welcome {{ user.username }}!<h1>
+                {% else %}
+                    <h1>Marketing stuff!</h1>
+                {% endif %}
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+                <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+              </div>
+
+              <!-- Example row of columns -->
+              <div class="row">
+                <div class="col-lg-4">
+                  <h2>Safari bug warning!</h2>
+                  <p class="text-danger">As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-lg-4">
+                  <h2>Heading</h2>
+                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+               </div>
+                <div class="col-lg-4">
+                  <h2>Heading</h2>
+                  <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+              </div>
+
+              <!-- Site footer -->
+              <footer class="footer">
+                <p>&copy; 2015 Company, Inc.</p>
+              </footer>
+            </div>
+        </div> <!-- /container -->
+    </div>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'constellation/js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script type="text/javascript">
+        $("#toggle-sidebar").click( function(e) {
+        		$("#wrapper").toggleClass("sidebar-layout");
+            e.preventDefault(); 
+        });
+    </script>
+
+	{% endblock %}

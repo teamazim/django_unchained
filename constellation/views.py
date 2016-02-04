@@ -11,7 +11,6 @@ from django.shortcuts import render
 #index page / Landing page
 def index(request):
 	context = {
-	'head_title': 'Constellation',
 	}
 	return render(request, 'constellation/landing_page.html', context)
 
@@ -20,7 +19,7 @@ def home(request):
 	context = {
 	'head_title': 'Constellation',
 	}
-	return render(request, 'constellation/base.html', context)
+	return render(request, 'constellation/home.html', context)
 
 #Logout a user / End session 
 def Logout(request):
@@ -44,3 +43,9 @@ def Login(request):
 		else:
 			return HttpResponseRedirect('')
 	return render( request, 'constellation/login.html', {'redirect_to' : next} )
+
+#First time user registration page
+def Register(request):
+   context = (
+   )
+   return render( request, 'constellation/register.html', context )

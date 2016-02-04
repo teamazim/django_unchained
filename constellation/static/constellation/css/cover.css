@@ -1,16 +1,24 @@
 /*
  * table of contents
  * --------------------------------------------------
+ *Font Imports
  *links
  *base structure
  *Header
  *Footer
- *site-background
+ *layout
+ * base
+ * site background
  */
  
-/*
- * Globals
+/**
+ * import
+ * --------------------------------------------------
  */
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic");
+@import url("http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic");
+
 
 /* Links */
 a,
@@ -169,4 +177,261 @@ body {
   .cover-container {
     width: 700px;
   }
+}
+
+/* layout */
+.layer, .site-loader, .site-nav, .site-wrap, .section, .site-bg, .site-bg__img,
+.site-bg__video,
+.site-bg__overlay,
+.site-bg__effect,
+.site-bg__canvas, .cloud, .newsletter-overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+/**
+ * base
+ * --------------------------------------------------
+ */
+body {
+  font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6, .btn, .site-nav__menu a, .section__subtitle, .digit, .dash_title {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.section__caption, #newsletter .form-subtitle {
+  font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background-color: transparent;
+  font-size: 15px;
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #fff;
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    letter-spacing: 5px;
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 65px;
+  }
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    letter-spacing: 5px;
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 992px) {
+  h2 {
+    font-size: 45px;
+  }
+}
+
+h3 {
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+@media (min-width: 992px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+h4 {
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 18px;
+  }
+}
+
+h5 {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  h5 {
+    font-size: 16px;
+  }
+}
+
+h6,
+.small {
+  font-size: 12px;
+}
+
+p,
+ol,
+ul,
+blockquote,
+pre {
+  margin-bottom: 20px;
+}
+
+p:last-child,
+ol:last-child,
+ul:last-child,
+blockquote:last-child,
+pre:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  p,
+  ol,
+  ul,
+  blockquote,
+  pre {
+    margin-bottom: 30px;
+  }
+}
+
+a {
+  color: #f2784b;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: #f05f2a;
+}
+
+i {
+  display: inline-block;
+  letter-spacing: 0;
+}
+
+/**
+ * site background
+ * --------------------------------------------------
+ */
+.site-bg {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.site-bg__img,
+.site-bg__video,
+.site-bg__overlay,
+.site-bg__effect,
+.site-bg__canvas {
+  position: absolute !important;
+}
+
+.site-bg__img {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.is-site-bg-img .site-bg__img {
+  display: block;
+  background-image: url(../images/ireland.jpg);
+}
+
+.site-bg__overlay {
+  position: absolute;
+  background-color: rgba(1, 1, 1, 0.65);
+}
+
+.is-site-bg-cloud .site-bg__effect {
+  display: block;
+}
+
+.is-site-bg-parallax-star .site-bg__effect {
+  overflow: hidden;
+}
+
+.ie9 .site-bg__effect {
+  background-image: url(#);
+}
+
+.cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.site-bg__canvas {
+  display: none;
+}
+
+.is-site-bg-star .site-bg__canvas {
+  display: block;
 }

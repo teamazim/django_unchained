@@ -17,4 +17,7 @@ urlpatterns = [
 	
 	#localhost:8000/constellation/logout 
 	url(r'^logout/$', views.Logout, name='Logout'),
+	
+	#localhost:8000/constellation/register
+	url(r'^register/$', views.Register, name='Register'),
 ]
