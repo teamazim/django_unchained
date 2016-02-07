@@ -5,10 +5,18 @@
 
 	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/justified-nav.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'constellation/css/sidebar.css' %}" />
-
+	
 	{% endblock %}
 	
 	{% block content %}
+	<!-- site bg -->
+	<div style="transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" class="site-bg">
+	<div class="site-bg__img"></div>
+	<div class="site-bg__overlay"></div>
+	<div style="position: relative; display: block; left: 0px; top: 0px; transform: translate3d(17.1691px, 0.91728px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" class="site-bg__effect layer" data-depth=".30"></div>       <!-- parallax data, try edit to other number :) -->
+	<canvas height="659" width="1366" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(17.1691px, 0.91728px, 0px); transform-style: preserve-3d; backface-visibility: hidden; opacity: 1;" class="site-bg__canvas layer" data-depth=".30"></canvas> <!-- parallax data, try edit to other number :) -->
+	</div>
+	<!-- /site bg -->
 
     <div id="wrapper">
         <a href="#" class="btn btn-primary" id="toggle-sidebar">             
@@ -90,5 +98,6 @@
             e.preventDefault(); 
         });
     </script>
+	
 
 	{% endblock %}
