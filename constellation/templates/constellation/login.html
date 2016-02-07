@@ -8,11 +8,6 @@
     
     <form method="post" action="." class="form-signin">
     <h2 class="form-signin-heading">User Login</h2>
-    {% if form.has_errors %}
-      <p>Your username and password didn't match. 
-        Please try again.</p>
-    {% endif %}
-    <form method="post" action=".">
 	{% csrf_token %}
       <p><label for="id_username"  class="sr-only">Username:</label>
         <input type="text" name="username" class="form-control" placeholder="Username"/>
