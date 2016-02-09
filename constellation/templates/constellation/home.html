@@ -12,17 +12,17 @@
 
     <div id="wrapper">
         <a href="#" class="btn btn-primary" id="toggle-sidebar">             
-            <span class="icon-bar">-</span>
-            <span class="icon-bar">-</span>
-            <span class="icon-bar">-</span> 
+            &#9776;
         </a>
 
         <div class="container">
             <div id="sidebar-wrapper" >
                 <ul class="sidebar-nav">
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="/constellation/logout">Logout</a></li>
+                    <li><a href="#"><img src="{% static 'constellation/images/icon/account.png' %}" ></img>Account</a></li>
+                    <li><a href="#"><img src="{% static 'constellation/images/icon/events.png' %}" ></img>Events</a></li>
+                    <li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/messages.png' %}" ></img>Messages</a></li>
+                    <li><a href="#"><img src="{% static 'constellation/images/icon/settingsCog.png' %}" ></img>Preferences</a></li>
+                    <li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/logout.png' %}" ></img>Logout</a></li>
                 </ul>
             </div>
 

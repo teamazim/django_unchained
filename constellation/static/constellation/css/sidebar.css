@@ -19,15 +19,16 @@
         border: none;
         height: 40px;
         position: fixed;
+        width: `40px;
+        font-size: 22px;
 }
 
 .sidebar-layout #toggle-sidebar{
     margin-left: 249px;
-    opacity: 0.8;
 }
 
 .sidebar-layout .container{
-    padding-left: 300px;
+    padding-left: 310px;
     width: 100%;
 }
 
@@ -46,6 +47,10 @@
     text-indent: 20px;
 }
 
+#sidebar-wrapper li:last-child{
+    margin-top: 3em;
+}
+
 .sidebar-nav{
     list-style: none;
     margin: 0;
@@ -56,9 +61,15 @@
     display: block;
     text-decoration: none;
     color: white;
+    
 }
 
 .sidebar-nav li a:hover{
     background: blue;
 }
 
+.sidebar-nav img{
+    max-height: 30px;
+    width: 30px;
+    margin-right: 1em;
+}
