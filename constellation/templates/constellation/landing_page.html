@@ -1,39 +1,7 @@
-{% extends "base.html" %}
+{% extends "cover.html" %}
 {% load static %}
-    {% block customstylesheet %}
-	<!-- Custom styles for this template -->
-	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/cover.css' %}" />
-	{% endblock %}
-	
-	{% block content %}
-	<div class="site-wrapper">
-		<div class="site-wrapper-inner">
-
-			<div class="cover-container">
-				<!-- site bg -->
-				<div style="transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" class="site-bg">
-					<div class="site-bg__img"></div>
-					<div class="site-bg__overlay"></div>
-					<div style="position: relative; display: block; left: 0px; top: 0px; transform: translate3d(17.1691px, 0.91728px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" class="site-bg__effect layer" data-depth=".30"></div>       <!-- parallax data, try edit to other number :) -->
-					<canvas height="659" width="1366" style="position: absolute; display: block; left: 0px; top: 0px; transform: translate3d(17.1691px, 0.91728px, 0px); transform-style: preserve-3d; backface-visibility: hidden; opacity: 1;" class="site-bg__canvas layer" data-depth=".30"></canvas> <!-- parallax data, try edit to other number :) -->
-				</div>
-				<!-- /site bg -->
-
-
-				<div class="masthead clearfix">
-					<div class="inner">
-						<h3 class="masthead-brand">Constellation <small>connecting Éire</small></h3>
-						<nav>
-							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">About</a></li>
-								<li><a href="#">Featured</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-
-				<div class="inner cover">
+{% block content %}
+    				<div class="inner cover">
 					<h1 class="cover-heading">Constellation</h1>
 					{% if user.username %}
 						<p class="lead">Welcome back {{ user.username }}.</p>
@@ -51,32 +19,4 @@
 						</p>
 					{% endif %}
 				</div>
-
-				<div class="mastfoot">
-					<div class="inner">
-						<p>Created by Django Unchained 2016 as part of a group project for cs3306.</p>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-	<script src="{% static 'constellation/bootstrap.min.js' %}"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="{% static 'constellation/ie10-viewport-bug-workaround.js' %}"></script>
-	<!-- script -->
-	<script src='{% static "constellation/js/jquery-2.js" %}'></script>
-	<script src='{% static "constellation/js/bootstrap.js" %}'></script>
-	<script src='{% static "constellation/js/plugin.js"%}'></script>
-	<script src='{% static "constellation/js/variable.js"%}'></script>
-	<script src='{% static "constellation/js/main.js"%}'></script>
-	<!-- /script -->
-	{% endblock %}
+{% endblock %}
