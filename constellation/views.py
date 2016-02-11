@@ -48,4 +48,4 @@ def Login(request):
 def Register(request):
    context = (
    )
-   return render( request, 'constellation/register.html', context )
+   return render( request, 'constellation/registration/stage1.html', context )

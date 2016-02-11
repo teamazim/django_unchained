@@ -463,6 +463,8 @@ i {
 	 padding: 20px;
 	 z-index: 1500;
 	 display: none;
+	 border-radius: 10px;
+	 color: black;
  }
  
  #close {
@@ -474,5 +476,4 @@ i {
 	 line-height: 30px;
 	 float: right;
 	 font-size: 30px;
-	 color: black;
  }
