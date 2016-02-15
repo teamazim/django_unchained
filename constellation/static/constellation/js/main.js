@@ -57,6 +57,12 @@ $(document).ready(function() {
 				return false;
 			});
 			
+			$('#stage2').click(function(){ 
+				$('#stage2div').hide();
+				$('#stage3div').show();
+				return false;
+			});
+			
 		});
 
 /**

@@ -45,6 +45,6 @@ body {
  *
  */
  
- #stage2div {
+ #stage2div, #stage3div {
 	 display: none;
  }
