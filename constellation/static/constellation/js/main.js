@@ -21,4 +21,11 @@ $(document).ready(function() {
 				$('#pop_box').fadeOut();
 				return false;
 			});
+			
+			$('#stage1').click(function(){ 
+				$('#stage1div').css("display", "none");
+				$('#stage2div').css("display", "block");
+				return false;
+			});
+			
 		});

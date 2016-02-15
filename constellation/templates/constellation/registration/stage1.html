@@ -4,20 +4,40 @@
 	<div class="inner cover">
 
 		<form method="post" action="." class="form-signin">
-			<h2 class="form-signin-heading">Signup</h2>
-{% csrf_token %}
-			<p><label for="id_email"  class="sr-only">Email:</label>
-			<input type="email" name="email" class="form-control" placeholder="Email"/>
-			
-			<p><label for="id_password" class="sr-only">Password:</label>
-			<input type="password" name="password" class="form-control" placeholder="Password"/>
-			
-			<p><label for="confirm_password" class="sr-only">Confirm Password:</label>
-			<input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password"/>
-			<div>
+{% csrf_token %}			
+			<div id="stage1div">
+				<h2 class="form-signin-heading">Signup</h2>
+				<p><label for="id_email"  class="sr-only">Email:</label>
+				<input type="email" name="email" class="form-control" placeholder="Email"/>
+				
+				<p><label for="id_password" class="sr-only">Password:</label>
+				<input type="password" name="password" class="form-control" placeholder="Password"/>
+				
+				<p><label for="confirm_password" class="sr-only">Confirm Password:</label>
+				<input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password"/>
+				
+				<div>
 
+				</div>
+				<input id="stage1" type="submit" class="btn btn-lg btn-primary btn-block" value="Next" />
 			</div>
-			<input type="submit" class="btn btn-lg btn-primary btn-block" value="Next" />
+			
+			<div id="stage2div">
+				<h2 class="form-signin-heading">Nearly There</h2>
+				<p><label for="id_email"  class="sr-only">Email:</label>
+				<input type="email" name="email" class="form-control" placeholder="Email"/>
+				
+				<p><label for="id_password" class="sr-only">Password:</label>
+				<input type="password" name="password" class="form-control" placeholder="Password"/>
+				
+				<p><label for="confirm_password" class="sr-only">Confirm Password:</label>
+				<input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password"/>
+				
+				<div>
+
+				</div>
+				<input id="stage2" type="submit" class="btn btn-lg btn-primary btn-block" value="Next" />
+			</div>
 		</form>
 	</div>
 {% endblock %}
