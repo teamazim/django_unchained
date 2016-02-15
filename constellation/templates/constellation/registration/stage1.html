@@ -3,18 +3,18 @@
 {% block content %}
 	<div class="inner cover">
 
-		<form method="post" action="." class="form-signin">
+		<form id="form" method="post" action="." class="form-signin">
 {% csrf_token %}			
 			<div id="stage1div">
 				<h2 class="form-signin-heading">Signup</h2>
 				<p><label for="id_email"  class="sr-only">Email:</label>
 				<input type="email" name="email" class="form-control" placeholder="Email"/>
 				
-				<p><label for="id_password" class="sr-only">Password:</label>
-				<input type="password" name="password" class="form-control" placeholder="Password"/>
+				<p><label for="pwd1" class="sr-only">Password:</label>
+				<input id="pwd1" type="password" name="pwd1" class="form-control" placeholder="Password"/>
 				
-				<p><label for="confirm_password" class="sr-only">Confirm Password:</label>
-				<input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password"/>
+				<p><label for="pwd2" class="sr-only">Confirm Password:</label>
+				<input id="pwd2" type="password" name="pwd2" class="form-control" placeholder="Confirm Password"/>
 				
 				<div>
 
@@ -24,15 +24,24 @@
 			
 			<div id="stage2div">
 				<h2 class="form-signin-heading">Nearly There</h2>
-				<p><label for="id_email"  class="sr-only">Email:</label>
-				<input type="email" name="email" class="form-control" placeholder="Email"/>
+				<p><label for="first_name"  class="sr-only">First name:</label>
+				<input id="first_name" type="text" name="first_name" class="form-control" placeholder="First Name"/>
 				
-				<p><label for="id_password" class="sr-only">Password:</label>
-				<input type="password" name="password" class="form-control" placeholder="Password"/>
+				<p><label for="surname" class="sr-only">Surname:</label>
+				<input id="surname" type="text" name="surname" class="form-control" placeholder="Surname"/>
 				
 				<p><label for="confirm_password" class="sr-only">Confirm Password:</label>
 				<input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password"/>
 				
+				<p><label class="checkbox-inline">
+					<input type="checkbox" value="">Male
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">Female
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" value="">Other
+				</label>
 				<div>
 
 				</div>
