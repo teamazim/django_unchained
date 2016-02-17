@@ -56,28 +56,27 @@ def Register(request):
 		last_name = request.POST['surname']
 		age = request.POST['age']
 		telephone = request.POST['telephone']
-		#gender = request.POST['gender']
 		addr_line_1 = request.POST['addr_line_1']
 		addr_line_2 = request.POST['addr_line_2']
 		county = request.POST['county']
 		country = request.POST['country']
 		
 		user = User.objects.create_user(
-		username=username,
-		email=email,
-		password= password
+		username = username,
+		email = email,
+		password = password
 		)
 		
 		user_object = SignUp(
-		'email',
-		'first_name',
-		'surname',
-		'age',
-		'telephone',
-		'addr_line_1',
-		'addr_line_2',
-		'county',
-		'country'
+		email = email,
+		first_name = first_name,
+		last_name = last_name,
+		age = age,
+		telephone = telephone,
+		addr_line_1 = addr_line_1,
+		addr_line_2 = addr_line_2,
+		county = county,
+		country = country,
 		)
 		user.save()
 		user_object.save()
