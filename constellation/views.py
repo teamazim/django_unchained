@@ -66,9 +66,10 @@ def Register(request):
 		email = email,
 		password = password
 		)
+		user.save()
 		
 		user_profile = UserProfile(
-		email = email,
+		user=user,
 		first_name = first_name,
 		last_name = last_name,
 		age = age,
@@ -78,8 +79,7 @@ def Register(request):
 		county = county,
 		country = country,
 		)
-		user.save()
-		user_object.save()
+		user_profile.save()
 		user = authenticate(username=username, password=password)
 		login(request, user)
 		return render( request, 'constellation/home.html', context )
