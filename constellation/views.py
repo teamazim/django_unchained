@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render
 from .models import UserProfile
+
 #index page / Landing page
 def index(request):
 	context = {
@@ -29,7 +30,7 @@ def Logout(request):
 #Login a user / Starts session
 def Login(request):
 	next = request.GET.get('next', '/constellation')
-	if request.method == "POST":
+	if request.method == "POST": #when submit button is pressed
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(username=username, password=password)
@@ -42,7 +43,7 @@ def Login(request):
 				return HttpResponse('Inactive user.')
 		else:
 			return HttpResponseRedirect('')
-	return render( request, 'constellation/login.html', {'redirect_to' : next} )
+	return render( request, 'constellation/login.html', {'redirect_to' : next} ) #Initial view
 
 #First time user registration page
 def Register(request):
@@ -66,7 +67,7 @@ def Register(request):
 		email = email,
 		password = password
 		)
-		user.save()
+		user.save() #Create and save user
 		
 		user_profile = UserProfile(
 		user=user,
@@ -79,9 +80,10 @@ def Register(request):
 		county = county,
 		country = country,
 		)
-		user_profile.save()
-		user = authenticate(username=username, password=password)
+		user_profile.save()#create and save user profile
+		
+		user = authenticate(username=username, password=password) #start a session
 		login(request, user)
-		return render( request, 'constellation/home.html', context )
+		return render( request, 'constellation/home.html', context ) #redirect to homepage
 	else:
 		return render( request, 'constellation/registration/signup.html', context )
