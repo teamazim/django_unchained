@@ -61,24 +61,26 @@ def Register(request):
 		addr_line_2 = request.POST['addr_line_2']
 		county = request.POST['county']
 		country = request.POST['country']
-		# user_object = SignUp(
-		# 'email',
-		# 'pwd1',
-		# 'first_name',
-		# 'surname',
-		# 'age',
-		# 'telephone',
-		# 'addr_line_1',
-		# 'addr_line_2',
-		# 'county',
-		# 'country',
-		# )
+		
 		user = User.objects.create_user(
 		username=username,
 		email=email,
 		password= password
 		)
+		
+		user_object = SignUp(
+		'email',
+		'first_name',
+		'surname',
+		'age',
+		'telephone',
+		'addr_line_1',
+		'addr_line_2',
+		'county',
+		'country'
+		)
 		user.save()
+		user_object.save()
 		user = authenticate(username=username, password=password)
 		login(request, user)
 		return render( request, 'constellation/home.html', context )
