@@ -1,3 +1,4 @@
+@@ -0,0 +1,40 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -38,3 +39,12 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/**
+ *User Registration
+ *
+ */
+ 
+ #stage2div, #stage3div {
+	 display: none;
+ }

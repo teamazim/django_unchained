@@ -1,17 +1,10 @@
-{% extends "base.html" %}
+{% extends "cover.html" %}
 {% load static %}
-{% block customstylesheet %}
-	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/login.css' %}" />
-{% endblock %}
 {% block content %}
-  <div class="container">
+  <div class="inner cover">
     
     <form method="post" action="." class="form-signin">
     <h2 class="form-signin-heading">User Login</h2>
-    {% if form.has_errors %}
-      <p>Your username and password didn't match. 
-        Please try again.</p>
-    {% endif %}
 	{% csrf_token %}
       <p><label for="id_username"  class="sr-only">Username:</label>
         <input type="text" name="username" class="form-control" placeholder="Username"/>
