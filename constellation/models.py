@@ -2,12 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User 
 # Create your models here.
 
-class Atendee():
-    user = models.OneToOneField(User),
-    display_name = models.CharField(max_length=20),
-    contact_number =  models.IntegerField(default=0),
-    nationality = models.CharField(max_length=30),
-    county = models.CharField(max_length=30),
-    preferred_language = models.CharField(max_length=30),
-    gender = models.CharField(max_length=15),
-    on_delete = models.CASCADE,
+class SignUp(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField( max_length=120, null=True, blank=True )
+    last_name = models.CharField( max_length=120, null=True, blank=True )
+    email = models.EmailField()
+    timestamp = models.DateTimeField( auto_now_add=True, auto_now=False )
+    updated = models.DateTimeField( auto_now_add=False, auto_now=True )

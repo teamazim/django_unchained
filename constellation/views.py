@@ -7,7 +7,7 @@ from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render
-
+from .models import SignUp
 #index page / Landing page
 def index(request):
 	context = {
@@ -46,6 +46,36 @@ def Login(request):
 
 #First time user registration page
 def Register(request):
-   context = (
-   )
-   return render( request, 'constellation/registration/stage1.html', context )
+	context = {
+	}
+	if request.method == 'POST':
+		username = request.POST['id_username']
+		email = request.POST['email']
+		password = request.POST['pwd1']
+		first_name = request.POST['first_name']
+		last_name = request.POST['surname']
+		age = request.POST['age']
+		telephone = request.POST['telephone']
+		#gender = request.POST['gender']
+		addr_line_1 = request.POST['addr_line_1']
+		addr_line_2 = request.POST['addr_line_2']
+		county = request.POST['county']
+		country = request.POST['country']
+		# user_object = SignUp(
+		# 'email',
+		# 'pwd1',
+		# 'first_name',
+		# 'surname',
+		# 'age',
+		# 'telephone',
+		# 'addr_line_1',
+		# 'addr_line_2',
+		# 'county',
+		# 'country',
+		# )
+		user = User.objects.create_user(
+		username=username,
+		email=email,
+		password= password
+		)
+	return render( request, 'constellation/registration/signup.html', context )
