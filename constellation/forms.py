@@ -1,12 +1,11 @@
 from django import forms
+from .models import UserProfile
 
-from .models import SignUp
+class UserProfileForm(forms.ModelForm):
 
-class SignUpForm(forms.ModelForm):
 	class Meta:
-		model = SignUp
-		fields = [
-		'first_name',
-		'last_name',
-		'email'
-		]
+		model = UserProfile
+		fields = (
+			'first_name',
+			'last_name'
+		)

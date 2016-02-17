@@ -7,7 +7,7 @@ from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render
-from .models import SignUp
+from .models import UserProfile
 #index page / Landing page
 def index(request):
 	context = {
@@ -67,7 +67,7 @@ def Register(request):
 		password = password
 		)
 		
-		user_object = SignUp(
+		user_profile = UserProfile(
 		email = email,
 		first_name = first_name,
 		last_name = last_name,
