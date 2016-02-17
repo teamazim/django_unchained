@@ -78,4 +78,9 @@ def Register(request):
 		email=email,
 		password= password
 		)
-	return render( request, 'constellation/registration/signup.html', context )
+		user.save()
+		user = authenticate(username=username, password=password)
+		login(request, user)
+		return render( request, 'constellation/home.html', context )
+	else:
+		return render( request, 'constellation/registration/signup.html', context )
