@@ -20,4 +20,16 @@ urlpatterns = [
 	
 	#localhost:8000/constellation/register
 	url(r'^register/$', views.Register, name='Register'),
+	
+	#localhost:8000/constellation/munster
+	url(r'^munster/$', views.Munster, name='Munster'),
+
+	#localhost:8000/constellation/leinster
+	url(r'^leinter/$', views.Leinster, name='Leinster'),
+
+	#localhost:8000/constellation/connacht
+	url(r'^connacht/$', views.Connacht, name='Connacht'),
+
+	#localhost:8000/constellation/ulster
+	url(r'^ulster/$', views.Ulster, name='Ulster'),
 ]
