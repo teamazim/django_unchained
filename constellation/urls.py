@@ -22,10 +22,10 @@ urlpatterns = [
 	url(r'^register/$', views.Register, name='Register'),
 	
 	#localhost:8000/constellation/munster
-	url(r'^Munster/$', views.Munster, name='Munster'),
+	url(r'^munster/$', views.Munster, name='Munster'),
 
 	#localhost:8000/constellation/leinster
-	url(r'^leinter/$', views.Leinster, name='Leinster'),
+	url(r'^leinster/$', views.Leinster, name='Leinster'),
 
 	#localhost:8000/constellation/connacht
 	url(r'^connacht/$', views.Connacht, name='Connacht'),
