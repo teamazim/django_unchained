@@ -87,3 +87,31 @@ def Register(request):
 		return render( request, 'constellation/home.html', context ) #redirect to homepage
 	else:
 		return render( request, 'constellation/registration/signup.html', context )
+
+#Munster page
+def Munster(request):
+	context = {
+	'head_title': 'Constellation',
+	}
+	return render(request, 'constellation/munster.html', context)
+
+#Leinster page
+def Leinster(request):
+	context = {
+	'head_title': 'Constellation',
+	}
+	return render(request, 'constellation/leinster.html', context)
+
+#Ulster page
+def Ulster(request):
+	context = {
+	'head_title': 'Constellation',
+	}
+	return render(request, 'constellation/ulster.html', context)
+
+#Connacht page
+def Connacht(request):
+	context = {
+	'head_title': 'Constellation',
+	}
+	return render(request, 'constellation/connacht.html', context)
