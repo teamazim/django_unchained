@@ -198,7 +198,7 @@ body {
  * --------------------------------------------------
  */
 body {
-  font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 h1,
@@ -248,7 +248,6 @@ body {
 }
 
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -465,6 +464,7 @@ i {
 	 display: none;
 	 border-radius: 10px;
 	 color: black;
+	 text-align: left;
  }
  
  #close {

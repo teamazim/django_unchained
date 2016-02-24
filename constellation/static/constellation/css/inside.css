@@ -1,5 +1,178 @@
+ 
+/**
+ * imports
+ * --------------------------------------------------
+ */
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic");
+@import url("http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6, .btn, .site-nav__menu a, .section__subtitle, .digit, .dash_title {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.section__caption, #newsletter .form-subtitle {
+  font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
 html,
 body {
+	font-size: 15px;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+@media (min-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+h1,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #fff;
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    letter-spacing: 5px;
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 65px;
+  }
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    letter-spacing: 5px;
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 992px) {
+  h2 {
+    font-size: 45px;
+  }
+}
+
+h3 {
+  line-height: 1.75;
+  font-size: 18px;
+}
+
+@media (min-width: 992px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+h4 {
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 18px;
+  }
+}
+
+h5 {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  h5 {
+    font-size: 16px;
+  }
+}
+
+h6,
+.small {
+  font-size: 12px;
+}
+
+p,
+ol,
+ul,
+blockquote,
+pre {
+  margin-bottom: 20px;
+}
+
+p:last-child,
+ol:last-child,
+ul:last-child,
+blockquote:last-child,
+pre:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  p,
+  ol,
+  ul,
+  blockquote,
+  pre {
+    margin-bottom: 30px;
+  }
+}
+
+a {
+  color: #f2784b;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: #f05f2a;
+}
+
+i {
+  display: inline-block;
+  letter-spacing: 0;
 }
 .site-bg__overlay {
   position: absolute;

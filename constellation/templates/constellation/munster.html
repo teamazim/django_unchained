@@ -1,92 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
-    {% block customstylesheet %}
-	<!-- Custom styles for this template -->
+{% block customstylesheet %}
 
-	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/justified-nav.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'constellation/css/sidebar.css' %}" />
+{% endblock %}
+{% block content %}
+		<!--Navbar-->
+		<div class="masthead clearfix">
+			<div class="inner">
+			<h3 class="masthead-brand">Constellation <small>Connecting &Eacute;ire</small></h3>
+				<nav>
+					<ul class="nav masthead-nav">
+						<li><a href="/constellation/home/">Home</a></li>
+						<li class="active"><a href="#">Munster</a></li>
+						<li><a href="/constellation/leinster/">Leinster</a></li>
+						<li><a href="/constellation/connacht/">Connacht</a></li>
+						<li><a href="/constellation/ulster/">Ulster</a></li>
+						<li><a href="#" id="contact">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!--/Navbar-->
 	
-	{% endblock %}
-	
-	{% block content %}
-
-    <div id="wrapper">
-        <a href="#" class="btn btn-primary" id="toggle-sidebar">             
-            &#9776; 
-        </a>
-
-        <div class="container">
-            <div id="sidebar-wrapper" >
-                <ul class="sidebar-nav">
-                    <li><a href="#"><img src="{% static 'constellation/images/icon/account.png' %}" ></img>Account</a></li>
-                    <li><a href="#"><img src="{% static 'constellation/images/icon/events.png' %}" ></img>Events</a></li>
-                    <li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/messages.png' %}" ></img>Messages</a></li>
-                    <li><a href="#"><img src="{% static 'constellation/images/icon/settingsCog.png' %}" ></img>Preferences</a></li>
-                    <li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/logout.png' %}" ></img>Logout</a></li>
-                </ul>
-            </div>
-
-              <!-- The justified navigation menu is meant for single line per list item.
-                   Multiple lines will require custom code not provided by Bootstrap. -->
-             <div class="masthead clearfix">
-					<div class="inner">
-						<h3 class="masthead-brand">Constellation <small>connecting Eire</small></h3>
-						<nav>
-							<ul class="nav masthead-nav">
-								<li><a href="/constellation/home/">Home</a></li>
-								<li class="active"><a href="/constellation/munster/">Munster</a></li>
-								<li><a href="/constellation/leinster/">Leinster</a></li>
-								<li><a href="/constellation/connacht/">Connacht</a></li>
-								<li><a href="/constellation/ulster/">Ulster</a></li>
-								<li><a href="#" id="contact">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-            <div id="page-content-wrapper">
-              <!-- Jumbotron -->
-
-              <div class="jumbotron">
-                <h1>Cork 2016</h1>
-                <div align="center" style="margin: 15px 10px 15px 10px;"><noscript><div align="center" style="width: 140px; border: 1px solid rgb(204, 204, 204); text-align: center; color: rgb(38, 120, 185); font-weight: bold; font-size: 12px; background-color: transparent;"><a href="http://mycountdown.org/My_Countdown/My_countdown/" style="text-decoration: none; font-size: inherit; color: rgb(38, 120, 185);">My Countdown </a></div></noscript><script type="text/javascript" src="http://mycountdown.org/countdown.php?cp2_Hex=f8f8fc&cp1_Hex=2678b9&img=1&hbg=1&fwdt=500&lab=1&ocd=My Countdown&text1=Munster Event&text2=&group=My Countdown&countdown=My Countdown&widget_number=3011&event_time=1457812800&timezone=UTC"></script></div>
-                <p><a class="btn btn-lg btn-success" href="#" role="button">Get your ticket now!</a></p>
-              </div>
-
-              <!-- Example row of columns -->
-              <div class="row">
-                <div class="col-lg-4">
-                  <h2>Event Info</h2>
-                  <p class="text-danger">As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
-                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                  <h2>Tickets</h2>
-                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-               </div>
-                <div class="col-lg-4">
-                  <h2>Location</h2>
-                  <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:300px;width:387px;'><div id='gmap_canvas' style='height:300px;width:387px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://maps-generator.com/'>by Maps-Generator.com</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=e558dde5fd50ed859157ce83381bf80808cbabee'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(51.8968917,-8.486315699999977),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(51.8968917,-8.486315699999977)});infowindow = new google.maps.InfoWindow({content:'<strong></strong><br>Cork<br> <br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-                </div>
-              </div>
-
-              <!-- Site footer -->
-              <footer class="footer">
-                <p>&copy; 2015 Company, Inc.</p>
-              </footer>
-            </div>
-        </div> <!-- /container -->
-    </div>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{% static 'constellation/js/ie10-viewport-bug-workaround.js' %}"></script>
-    <script type="text/javascript">
-        $("#toggle-sidebar").click( function(e) {
-        		$("#wrapper").toggleClass("sidebar-layout");
-            e.preventDefault(); 
-        });
-    </script>
-	
-
-	{% endblock %}
+	<!-- Jumbotron -->
+		<div class="jumbotron">
+		<h1>Cork 2016</h1>
+		<div align="center" style="margin: 15px 10px 15px 10px;"><noscript><div align="center" style="width: 140px; border: 1px solid rgb(204, 204, 204); text-align: center; color: rgb(38, 120, 185); font-weight: bold; font-size: 12px; background-color: transparent;"><a href="http://mycountdown.org/My_Countdown/My_countdown/" style="text-decoration: none; font-size: inherit; color: rgb(38, 120, 185);">My Countdown </a></div></noscript><script type="text/javascript" src="http://mycountdown.org/countdown.php?cp2_Hex=f8f8fc&cp1_Hex=2678b9&img=1&hbg=1&fwdt=500&lab=1&ocd=My Countdown&text1=Munster Event&text2=&group=My Countdown&countdown=My Countdown&widget_number=3011&event_time=1457812800&timezone=UTC"></script></div>
+		<p><a class="btn btn-lg btn-success" href="#" role="button">Get your ticket now!</a></p>
+		</div>
+	<!-- /Jumbotron -->
+		
+	<!-- Example row of columns -->
+		<div class="row">
+		<div class="col-lg-4">
+		  <h2>Event Info</h2>
+		  <p class="text-danger">As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+		  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+		  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+		</div>
+		<div class="col-lg-4">
+		  <h2>Tickets</h2>
+		  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+		  <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+		</div>
+		<div class="col-lg-4">
+		  <h2>Location</h2>
+		  <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:300px;width:387px;'><div id='gmap_canvas' style='height:300px;width:387px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://maps-generator.com/'>by Maps-Generator.com</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=e558dde5fd50ed859157ce83381bf80808cbabee'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(51.8968917,-8.486315699999977),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(51.8968917,-8.486315699999977)});infowindow = new google.maps.InfoWindow({content:'<strong></strong><br>Cork<br> <br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+		</div>
+		</div>
+	<!-- /Example row of columns -->
+{% endblock %}
