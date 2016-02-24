@@ -1,0 +1,129 @@
+html,
+body {
+}
+.site-bg__overlay {
+  position: absolute;
+  background-color: rgba(1, 1, 1, 0.65);
+}
+.site-bg {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.site-bg__img,
+.site-bg__video,
+.site-bg__overlay,
+.site-bg__effect,
+.site-bg__canvas {
+  position: absolute !important;
+}
+
+.site-bg__img {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.is-site-bg-img .site-bg__img {
+  display: block;
+  background-image: url(../images/wallpaper.jpg);
+}
+
+.site-bg__overlay {
+  position: absolute;
+  background-color: rgba(1, 1, 1, 0.65);
+}
+
+.is-site-bg-cloud .site-bg__effect {
+  display: block;
+}
+
+.is-site-bg-parallax-star .site-bg__effect {
+  overflow: hidden;
+}
+
+.ie9 .site-bg__effect {
+  background-image: url(#);
+}
+
+.cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.site-bg__canvas {
+  display: none;
+}
+
+.is-site-bg-star .site-bg__canvas {
+  display: block;
+}
+
+/* layout */
+.layer, .site-loader, .site-nav, .site-wrap, .section, .site-bg, .site-bg__img,
+.site-bg__video,
+.site-bg__overlay,
+.site-bg__effect,
+.site-bg__canvas, .cloud, .newsletter-overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background-color: transparent;
+  font-size: 15px;
+  color: #fff;
+}
+
+/*
+ * Header
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
