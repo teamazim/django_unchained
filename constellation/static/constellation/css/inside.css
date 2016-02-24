@@ -127,3 +127,44 @@ body {
     float: right;
   }
 }
+
+/**
+ *contact box
+ *-----------------------------------
+ */
+ 
+ #pop_background {
+	position: fixed;
+	 width: 100%;
+	 height: 900px;
+	 top: 0;
+	 left: 0;
+	 background: #000;
+	 opacity: .8;
+	 z-index: 1000;
+	 cursor: pointer;
+	 display: none;
+ }
+ 
+ #pop_box {
+	 position: absolute;
+	 background: #fff;
+	 width: 30%;
+	 margin: 100px 0 0 35%;
+	 padding: 20px;
+	 z-index: 1500;
+	 display: none;
+	 border-radius: 10px;
+	 color: black;
+ }
+ 
+ #close {
+	 width: 30px;
+	 height: 30px;
+	 border-radius: 50%;
+	 border: 1px solid #999;
+	 text-align: center;
+	 line-height: 30px;
+	 float: right;
+	 font-size: 30px;
+ }
