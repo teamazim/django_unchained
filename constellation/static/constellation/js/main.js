@@ -83,3 +83,5 @@ $("#toggle-sidebar").click( function(e) {
     $("#wrapper").toggleClass("sidebar-layout");
          e.preventDefault(); 
 });
+
+
