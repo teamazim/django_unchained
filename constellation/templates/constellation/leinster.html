@@ -1,49 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
-    {% block customstylesheet %}
-	<!-- Custom styles for this template -->
+{% block customstylesheet %}
 
-	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/justified-nav.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'constellation/css/sidebar.css' %}" />
-	
-	{% endblock %}
-	
-	{% block content %}
+{% endblock %}
+{% block content %}
 
-    <div id="wrapper">
-        <a href="#" class="btn btn-primary" id="toggle-sidebar">             
-            &#9776; 
-        </a>
-
-        <div class="container">
-            <div id="sidebar-wrapper" >
-                <ul class="sidebar-nav">
-                    <li><a href="#"><img src="{% static 'constellation/images/icon/account.png' %}" ></img>Account</a></li>
-                    <li><a href="#"><img src="{% static 'constellation/images/icon/events.png' %}" ></img>Events</a></li>
-                    <li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/messages.png' %}" ></img>Messages</a></li>
-                    <li><a href="#"><img src="{% static 'constellation/images/icon/settingsCog.png' %}" ></img>Preferences</a></li>
-                    <li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/logout.png' %}" ></img>Logout</a></li>
-                </ul>
-            </div>
-
-              <!-- The justified navigation menu is meant for single line per list item.
-                   Multiple lines will require custom code not provided by Bootstrap. -->
-              <div class="masthead">
-                <h3 class="text-muted">Constellation</h3>
-                <nav>
-                  <ul class="nav nav-justified">
-                    <li><a href="/constellation/home/">Home</a></li>
-                    <li><a href="/constellation/munster/">Munster</a></li>
-                    <li class="active"><a href="#">Leinster</a></li>
-                    <li><a href="/constellation/connacht/">Connacht</a></li>
-                    <li><a href="/constellation/ulster/">Ulster</a></li>
-                    <li><a href="#">Contact</a></li>
-                  </ul>
-                </nav>
-              </div>
-            <div id="page-content-wrapper">
+          <div class="masthead clearfix">
+		<div class="inner">
+			<h3 class="masthead-brand">Constellation <small>Connecting &Eacute;ire</small></h3>
+			<nav>
+				<ul class="nav masthead-nav">
+					<li><a href="/constellation/home/">Home</a></li>
+					<li><a href="/constellation/munster/">Munster</a></li>
+					<li class="active"><a href="#">Leinster</a></li>
+					<li><a href="/constellation/connacht/">Connacht</a></li>
+					<li><a href="/constellation/ulster/">Ulster</a></li>
+					<li><a href="#" id="contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+			  
               <!-- Jumbotron -->
-
               <div class="jumbotron">
                 <h1>Leinster Event!<h1>
                 <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
@@ -67,24 +45,5 @@
                   <h2>Location</h2>
                   <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:300px;width:387px;'><div id='gmap_canvas' style='height:300px;width:387px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://maps-generator.com/'>by Maps-Generator.com</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=33bddf276c65dc97fcfaf7c306de6465a0074319'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(53.3498053,-6.260309699999993),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(53.3498053,-6.260309699999993)});infowindow = new google.maps.InfoWindow({content:'<strong></strong><br>Dublin<br> <br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
                 </div>
-              </div>
-
-              <!-- Site footer -->
-              <footer class="footer">
-                <p>&copy; 2015 Company, Inc.</p>
-              </footer>
-            </div>
-        </div> <!-- /container -->
-    </div>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{% static 'constellation/js/ie10-viewport-bug-workaround.js' %}"></script>
-    <script type="text/javascript">
-        $("#toggle-sidebar").click( function(e) {
-        		$("#wrapper").toggleClass("sidebar-layout");
-            e.preventDefault(); 
-        });
-    </script>
-	
-
+              </div>	
 	{% endblock %}
