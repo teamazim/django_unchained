@@ -341,3 +341,8 @@ body {
 	 float: right;
 	 font-size: 30px;
  }
+ 
+.countdown {
+	margin: auto;
+	width: 50%;
+}
