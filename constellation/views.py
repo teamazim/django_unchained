@@ -9,14 +9,8 @@ from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render
 from .models import UserProfile
 
-#index page / Landing page
+#index page
 def index(request):
-	context = {
-	}
-	return render(request, 'constellation/landing_page.html', context)
-
-#Sample home page?
-def home(request):
 	context = {
 	'head_title': 'Constellation',
 	}

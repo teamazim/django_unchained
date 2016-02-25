@@ -1,7 +1,26 @@
-{% extends "cover.html" %}
+{% extends "base.html" %}
 {% load static %}
+{% block customstylesheet %}
+	<!-- Custom styles for this template -->
+	
+{% endblock %}
 {% block content %}
-	<div class="inner cover">
+
+	<div class="masthead clearfix">
+		<div class="inner">
+			<h3 class="masthead-brand">Constellation <small>Connecting &Eacute;ire</small></h3>
+			<nav>
+				<ul class="nav masthead-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="/constellation/munster/">Munster</a></li>
+					<li><a href="/constellation/leinster/">Leinster</a></li>
+					<li><a href="/constellation/connacht/">Connacht</a></li>
+					<li><a href="/constellation/ulster/">Ulster</a></li>
+					<li><a href="#" id="contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 
 		<form id="form" method="POST" action="" class="form-signin">
 {% csrf_token %}
@@ -71,5 +90,4 @@
 				<input id="stage3" type="submit" class="btn btn-lg btn-primary btn-block" value="Let me in" />
 			</div>
 		</form>
-	</div>
 {% endblock %}

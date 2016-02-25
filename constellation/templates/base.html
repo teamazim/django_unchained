@@ -18,6 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/inside.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/sidebar.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/justified-nav.css' %}" />
+				<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/login.css' %}" />
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -39,10 +40,10 @@
 			<h2 class="form-signin-heading">Email Us</h2>
 			{% csrf_token %}
 			<p><label for="name"  class="sr-only">Name:</label>
-			<input type="text" name="username" class="form-control" placeholder="Name: "/>
+			<input type="text" name="username" class="form-control" placeholder="{{ user.get_username }} "/>
 			
 			<p><label for="email" class="sr-only">Email:</label>
-			<input type="email" name="password" class="form-control" placeholder="Email"/>
+			<input type="email" name="password" class="form-control" placeholder="{{ user.get_email }} "/>
 			
 			<p><label for="message" class="sr-only">Message</label>
 			<textarea placeholder="Message" class="form-control" rows="5" id="message"></textarea>
@@ -73,7 +74,11 @@
 					<li><a href="#"><img src="{% static 'constellation/images/icon/events.png' %}" ></img>Events</a></li>
 					<li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/messages.png' %}" ></img>Messages</a></li>
 					<li><a href="#"><img src="{% static 'constellation/images/icon/settingsCog.png' %}" ></img>Preferences</a></li>
-					<li><a href="/constellation/logout"><img src="{% static 'constellation/images/icon/logout.png' %}" ></img>Logout</a></li>
+{% if user.username %}
+					<li><a href="/constellation/logout/"><img src="{% static 'constellation/images/icon/logout.png' %}" ></img>Logout</a></li>
+{% else %}
+					<li><a href="/constellation/login/"><img src="{% static 'constellation/images/icon/logout.png' %}" ></img>Login</a></li>
+{% endif %}
 				</ul>
 			</div>
 {% block content %}
