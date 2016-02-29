@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User 
 # Create your models here.
 
-class UserProfile1(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField( max_length=40, default='test')
     last_name = models.CharField( max_length=40, default='test' )
@@ -62,6 +62,7 @@ class UserProfiles(models.Model):
     phone = models.CharField(max_length = 20)
     gender = models.CharField(max_length=1, choices=GENDERS)
     language = models.CharField(max_length = 50)
+    nickname = models.CharField(max_length = 50)
 
 class Events(models.Model):
     SEASONS = (

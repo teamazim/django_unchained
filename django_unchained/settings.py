@@ -72,7 +72,8 @@ WSGI_APPLICATION = 'django_unchained.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'C:/Users/shane_000/Desktop/django_unchained/db.sqlite3'
     }
 }
 
