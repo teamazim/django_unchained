@@ -69,7 +69,7 @@ def Register(request):
         )
         user.save()  # Create and save user
 
-        user_profile = UserProfile1(
+        user_profile = UserProfile(
                 user=user,
                 first_name=first_name,
                 last_name=last_name,
