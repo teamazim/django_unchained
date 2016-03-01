@@ -32,7 +32,10 @@
 	  <!-- Jumbotron -->
 	  <div class="jumbotron">
 		{% if user.username %}
-			<h1>Welcome {{ user.get_username }}  {{ UserProfile.last_name }}!<h1>
+			<h1>Welcome {{ user.get_username }}!</h1>
+			{% for obj in object_list %}
+				<p>{{ obj.county }}</p>
+			{% endfor %}
 		{% else %}
 			<h1>Welcome to Constellation!</h1>
 		{% endif %}
