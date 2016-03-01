@@ -67,7 +67,7 @@ class UserProfiles(models.Model):
     language = models.CharField(max_length = 50)
     nickname = models.CharField(max_length = 50)
 
-class Events(models.Model):
+class Event(models.Model):
     SEASONS = (
         ('spring', 'Spring'),
         ('summer', 'Summer'),
@@ -86,14 +86,14 @@ class Events(models.Model):
     notesID = models.IntegerField()
     availability = models.IntegerField()
 
-class Notes(models.Model):
+class Note(models.Model):
     notesID = models.AutoField(primary_key=True)
     fileName = models.CharField(max_length = 50)
     dataType = models.CharField(max_length = 10)
     noteDescription = models.TextField()
     dateAdded = models.DateField()
 
-class Venues(models.Model):
+class Venue(models.Model):
     VENUE_TYPES = (
         ('indoor', 'Indoor'),
         ('outdoor', 'Outdoor'),
@@ -105,7 +105,7 @@ class Venues(models.Model):
     capacity = models.PositiveIntegerField()
     venueType = models.CharField(max_length=7, choices=VENUE_TYPES)
 
-class Counties(models.Model):
+class County(models.Model):
     PROVINCES = (
         ('connacht', 'Connacht'),
         ('leinster', 'Leinster'),
@@ -116,7 +116,7 @@ class Counties(models.Model):
     countyName = models.CharField(max_length=9, choices=COUNTIES)
     province = models.CharField(max_length=8, choices=PROVINCES)
 
-class Bookings(models.Model):
+class Booking(models.Model):
     bookingID = models.AutoField(primary_key=True)
     userID = models.IntegerField()
     eventID = models.IntegerField()
