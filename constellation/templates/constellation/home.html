@@ -33,9 +33,7 @@
 	  <div class="jumbotron">
 		{% if user.username %}
 			<h1>Welcome {{ user.get_username }}!<h1>
-			{% for usr_profile in user_profiles %}
-				<p>{{ usr_profile.last_name }}</p>
-			{% endfor %}
+				<p>{{ user_profiles.last_name }}</p>
 		{% else %}
 			<h1>Welcome to Constellation!</h1>
 		{% endif %}

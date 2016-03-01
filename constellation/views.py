@@ -14,7 +14,8 @@ import datetime
 
 # index page
 def index(request):
-	user_profiles = UserProfile.objects.all()
+	user = request.user
+	user_profile = UserProfile.objects.get(user=user)
 	context = {
 	'head_title': 'Constellation',
 	'user_profiles': user_profiles
