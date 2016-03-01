@@ -6,7 +6,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .models import *
 from django.core.mail import send_mail
 from django.conf import settings
@@ -14,10 +14,10 @@ import datetime
 
 # index page
 def index(request):
-	queryset = UserProfile.objects.all()
+	user_profiles = UserProfile.objects.all()
 	context = {
 	'head_title': 'Constellation',
-	'object_list': queryset
+	'user_profiles': user_profiles
 	}
 	return render(request, 'constellation/home.html', context)
 
