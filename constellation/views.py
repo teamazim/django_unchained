@@ -177,7 +177,7 @@ def Checkin(request, qr_code):
 def GenerateTicket(request):
     bookingObject = Booking.objects.get(bookingID = 1)
 
-    userProfileObject = UserProfile.objects.get(id = bookingObject.userID)
+    userProfileObject = UserProfile.objects.get(userID = bookingObject.userID)
     eventObject = Event.objects.get(eventID = bookingObject.eventID)
     venueObject = Venue.objects.get(venueID =  eventObject.venueID)
 

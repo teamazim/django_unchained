@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	userID = models.AutoField(primary_key=True)
 	first_name = models.CharField( max_length=40, default='test')
 	last_name = models.CharField( max_length=40, default='test' )
 	age = models.CharField( max_length=40, default='test' )
