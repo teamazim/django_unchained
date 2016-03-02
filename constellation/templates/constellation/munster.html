@@ -38,11 +38,11 @@
 												});
 			</script>
 		</div>
-		{% if user.username %}
-			<p><a class="btn btn-lg btn-success" href="/constellation/generateticket/{{ event.eventID }}" role="button">Get your ticket now!</a></p>
-		{% else %}
-			<p><a class="btn btn-lg btn-success" href="#" role="button">Register to book ticket now!</a></p>
-		{% endif %}
+			{% if user.username %}
+				<p><a class="btn btn-lg btn-success" href="/constellation/generateticket/{{ event.eventID }}" role="button">Get your ticket now!</a></p>
+			{% else %}
+				<p><a class="btn btn-lg btn-success" href="/constellation/register" role="button">Register to book ticket now!</a></p>
+			{% endif %}
 		</div>
 	<!-- /Jumbotron -->
 		
