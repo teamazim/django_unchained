@@ -30,9 +30,9 @@
 				var myCountdownTest = new Countdown({
 
 												onComplete : countdownComplete,
-											 	year	: 2016,
-												month	: 3, 
-												day		: 2,
+												year  : {{ event.startDate.year }},
+												month : {{ event.startDate.month }}, 
+												day   : {{ event.startDate.day }},
 												width	: 500, 
 												height	: 85
 												});
