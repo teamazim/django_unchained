@@ -87,7 +87,7 @@ class Event(models.Model):
 	availability = models.IntegerField()
 
 	def __str__(self):              # __unicode__ on Python 2
-		return self.first_name
+		return self.title
 
 class Note(models.Model):
     notesID = models.AutoField(primary_key=True)
