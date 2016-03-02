@@ -15,10 +15,10 @@ import datetime
 # index page
 def index(request):
 	user = request.user
-	user_profile = UserProfile.objects.get(user=user)
+	profile = UserProfile.objects.get(user=user)
 	context = {
 	'head_title': 'Constellation',
-	'user_profiles': user_profiles
+	'profile': profile
 	}
 	return render(request, 'constellation/home.html', context)
 
