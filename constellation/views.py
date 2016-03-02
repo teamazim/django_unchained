@@ -94,10 +94,11 @@ def Register(request):
 
 # Munster page
 def Munster(request):
-    context = {
-        'head_title': 'Constellation',
-    }
-    return render(request, 'constellation/munster.html', context)
+	#event = Event.objects.get(season='Spring')
+	context = {
+	'head_title': 'Constellation',
+	}
+	return render(request, 'constellation/munster.html', context)
 
 
 # Leinster page

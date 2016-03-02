@@ -68,23 +68,26 @@ class UserProfiles(models.Model):
     nickname = models.CharField(max_length = 50)
 
 class Event(models.Model):
-    SEASONS = (
-        ('spring', 'Spring'),
-        ('summer', 'Summer'),
-        ('autumn', 'Autumn'),
-        ('winter', 'Winter'),
-    )
-    eventID = models.AutoField(primary_key=True)
-    title = models.CharField(max_length = 50)
-    eventDescription = models.TextField()
-    startTime = models.TimeField()
-    endTime = models.TimeField()
-    startDate = models.DateField()
-    endDate = models.DateField()
-    venueID = models.IntegerField()
-    season = models.CharField(max_length=6, choices=SEASONS)
-    notesID = models.IntegerField()
-    availability = models.IntegerField()
+	SEASONS = (
+	('spring', 'Spring'),
+	('summer', 'Summer'),
+	('autumn', 'Autumn'),
+	('winter', 'Winter'),
+	)
+	eventID = models.AutoField(primary_key=True)
+	title = models.CharField(max_length = 50)
+	eventDescription = models.TextField()
+	startTime = models.TimeField()
+	endTime = models.TimeField()
+	startDate = models.DateField()
+	endDate = models.DateField()
+	venueID = models.IntegerField()
+	season = models.CharField(max_length=6, choices=SEASONS)
+	notesID = models.IntegerField()
+	availability = models.IntegerField()
+
+	def __str__(self):              # __unicode__ on Python 2
+		return self.first_name
 
 class Note(models.Model):
     notesID = models.AutoField(primary_key=True)
