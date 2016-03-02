@@ -184,36 +184,50 @@ def Checkin(request, qr_code):
 #AT THE MOMENT MISSING HOW TO GET THE CURRENT BOOKING ID AND ALSO A PATH TO THE HTML TEMPLATE
 #Generates a ticket from a particular booking ID
 def GenerateTicket(request):
-    bookingObject = Booking.objects.get(bookingID = 1)
+	bookingObject = Booking.objects.get(bookingID = 1)
 
-    userProfileObject = UserProfile.objects.get(user_ID = bookingObject.userID)
-    eventObject = Event.objects.get(eventID = bookingObject.eventID)
-    venueObject = Venue.objects.get(venueID =  eventObject.venueID)
+	userProfileObject = UserProfile.objects.get(user_ID = bookingObject.userID)
+	eventObject = Event.objects.get(eventID = bookingObject.eventID)
+	venueObject = Venue.objects.get(venueID =  eventObject.venueID)
 
-    HTML_MESSAGE = loader.render_to_string(
-                '../templates/constellation/ticket.html',
-                {
-                    "event_title": eventObject.title,
-                    "event_description": eventObject.eventDescription,
-                    "first_name": userProfileObject.first_name,
-                    "last_name": userProfileObject.last_name,
-                    "start_time": eventObject.startTime,
-                    "start_date": eventObject.startDate,
-                    "venue_name": venueObject.venueName,
-                    "venue_address": venueObject.venueAddress,
-                    "venue_county": venueObject.venueCounty,
-                    "qr_code": bookingObject.qrCode
-                }
-            )
+	HTML_MESSAGE = loader.render_to_string(
+	'../templates/constellation/ticket.html',
+	{
+	"event_title": eventObject.title,
+	"event_description": eventObject.eventDescription,
+	"first_name": userProfileObject.first_name,
+	"last_name": userProfileObject.last_name,
+	"start_time": eventObject.startTime,
+	"start_date": eventObject.startDate,
+	"venue_name": venueObject.venueName,
+	"venue_address": venueObject.venueAddress,
+	"venue_county": venueObject.venueCounty,
+	"qr_code": bookingObject.qrCode
+	}
+	)
 
-    SUBJECT = "Your ticket for " + eventObject.title
-    MESSAGE = ""
-    FROM_EMAIL = settings.EMAIL_HOST_USER
-    TO_EMAIL = ["teamazim829@gmail.com"]
-    FAIL_SILENTLY = True
+	SUBJECT = "Your ticket for " + eventObject.title
+	MESSAGE = ""
+	FROM_EMAIL = settings.EMAIL_HOST_USER
+	TO_EMAIL = ["teamazim829@gmail.com"]
+	FAIL_SILENTLY = True
+	send_mail(SUBJECT, MESSAGE, FROM_EMAIL, TO_EMAIL, fail_silently = FAIL_SILENTLY, html_message = HTML_MESSAGE)
 
-    send_mail(SUBJECT, MESSAGE, FROM_EMAIL, TO_EMAIL, fail_silently = FAIL_SILENTLY, html_message = HTML_MESSAGE)
-    return HttpResponse("Email successfully sent")
+	user = request.user.id
+	if user is not None:
+		profile = UserProfile.objects.get(user=user)
+		context = {
+		'profile': profile,
+		'event': eventObject,
+		'venue': venueObject,
+		}
+	else:
+		context = {
+		'head_title': 'Constellation',
+		'event': eventObject,
+		'venue': venueObject,
+		}
+	return render(request, 'constellation/success.html', context)
 
 #AT THE MOMENT THIS JUST RETURNS THE NAME OF THE PROVINCE BUT COULD LEAD TO PAGE OF ALL EVENTS
 #Ticket page where a ticket booking is made and a call to generate a ticket is made

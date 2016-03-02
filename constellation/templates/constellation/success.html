@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block customstylesheet %}
+
+{% endblock %}
+{% block content %}
+	<div class="masthead clearfix">
+		<div class="inner">
+			<h3 class="masthead-brand">Constellation <small>Connecting &Eacute;ire</small></h3>
+			<nav>
+				<ul class="nav masthead-nav">
+					<li><a href="/constellation/">Home</a></li>
+					<li><a href="/constellation/munster/">Munster</a></li>
+					<li><a href="/constellation/leinster/">Leinster</a></li>
+					<li><a href="/constellation/connacht/">Connacht</a></li>
+					<li><a href="#">Ulster</a></li>
+					<li><a href="#" id="contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	
+	<!-- Jumbotron -->
+	  <div class="jumbotron">
+			<h1>Success!</h1>
+			<p class="lead">An email has been sent to your email address.</p>
+			<p class="lead">{{ profile.first_name }} please print and keep ticket safe.</p>
+			<p class="lead">You are attending {{ title }} on the {{ event.StartDate }}</p>
+	  </div> 
+{% endblock %}
