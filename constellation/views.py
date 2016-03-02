@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 import datetime
 
+
 # index page
 def index(request):
 	user = request.user.id
@@ -141,17 +142,17 @@ def Connacht(request):
 def Checkin(request, qr_code):
     if Booking.objects.filter(qrCode = qr_code).exists():
         bookingObject = Booking.objects.get(qrCode = qr_code)
-        userProfileObject = UserProfiles.objects.get(userID = bookingObject.userID)
+        userProfileObject = UserProfile.objects.get(id = bookingObject.userID)
         if bookingObject.confirmed == False:
-            now = datetime.datetime.now()
+            now = datetime.datetime.now().replace(microsecond=0)
             bookingObject.confirmed = True
             bookingObject.checkinDate = now
             bookingObject.checkinTime = now
             bookingObject.save()
-            html = "<html><head>Checked-In</head><body><p>%s &s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, now)
+            html = "<html><head>Checked-In</head><body><p>%s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, now)
             return HttpResponse(html)
         else:
-            html = "<html><head>Already Checked-In</head><body><p>%s &s %s Checked in at %s %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, bookingObject.checkinTime, bookingObject.checkinDate)
+            html = "<html><head>Already Checked-In</head><body><p>%s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, bookingObject.checkinTime)
             return HttpResponse(html)
     else:
         html = "<html><head>Invalid QR Code</head><body><p>%s does not match any booking.</body></html>" % qr_code
