@@ -121,9 +121,11 @@ def Leinster(request):
 # Ulster page
 def Ulster(request):
 	event = Event.objects.get(eventID=4)
+	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
 	'head_title': 'Constellation',
 	'event': event,
+	'venue': venue,
 	}
 	return render(request, 'constellation/ulster.html', context)
 
