@@ -184,7 +184,8 @@ def GenerateTicket(request):
                     "start_date": eventObject.startDate,
                     "venue_name": venueObject.venueName,
                     "venue_address": venueObject.venueAddress,
-                    "venue_county": venueObject.venueCounty
+                    "venue_county": venueObject.venueCounty,
+                    "qr_code": bookingObject.qrCode
                 }
             )
 
@@ -195,7 +196,6 @@ def GenerateTicket(request):
     FAIL_SILENTLY = True
 
     send_mail(SUBJECT, MESSAGE, FROM_EMAIL, TO_EMAIL, fail_silently = FAIL_SILENTLY, html_message = HTML_MESSAGE)
-
     return HttpResponse("Email successfully sent")
 
 #AT THE MOMENT THIS JUST RETURNS THE NAME OF THE PROVINCE BUT COULD LEAD TO PAGE OF ALL EVENTS
