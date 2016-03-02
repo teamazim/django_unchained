@@ -96,28 +96,36 @@ class Note(models.Model):
     dateAdded = models.DateField()
 
 class Venue(models.Model):
-    VENUE_TYPES = (
-        ('indoor', 'Indoor'),
-        ('outdoor', 'Outdoor'),
-    )
-    venueID = models.AutoField(primary_key=True)
-    venueName = models.CharField(max_length = 50)
-    venueAddress = models.TextField()
-    venueCounty = models.CharField(max_length = 9, choices=COUNTIES)
-    venueCountry = models.CharField(max_length = 50)
-    capacity = models.PositiveIntegerField()
-    venueType = models.CharField(max_length=7, choices=VENUE_TYPES)
+	VENUE_TYPES = (
+		('indoor', 'Indoor'),
+		('outdoor', 'Outdoor'),
+	)
+	venueID = models.AutoField(primary_key=True)
+	venueName = models.CharField(max_length = 50)
+	venueAddress = models.TextField()
+	venueCounty = models.CharField(max_length = 9, choices=COUNTIES)
+	venueCountry = models.CharField(max_length = 50)
+	capacity = models.PositiveIntegerField()
+	venueType = models.CharField(max_length=7, choices=VENUE_TYPES)
+
+	def __str__(self):              # __unicode__ on Python 2
+		return self.venueName
+
 
 class County(models.Model):
-    PROVINCES = (
-        ('connacht', 'Connacht'),
-        ('leinster', 'Leinster'),
-        ('munster', 'Munster'),
-        ('ulster', 'Ulster'),
-    )
-    countyID = models.AutoField(primary_key=True)
-    countyName = models.CharField(max_length=9, choices=COUNTIES)
-    province = models.CharField(max_length=8, choices=PROVINCES)
+	PROVINCES = (
+		('connacht', 'Connacht'),
+		('leinster', 'Leinster'),
+		('munster', 'Munster'),
+		('ulster', 'Ulster'),
+	)
+	countyID = models.AutoField(primary_key=True)
+	countyName = models.CharField(max_length=9, choices=COUNTIES)
+	province = models.CharField(max_length=8, choices=PROVINCES)
+
+	def __str__(self):              # __unicode__ on Python 2
+		return self.countyName
+
 
 class Booking(models.Model):
     bookingID = models.AutoField(primary_key=True)
