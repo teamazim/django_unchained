@@ -35,6 +35,9 @@ var CountdownLabels = {
 };
 
 var CountdownInterval = 76;
+function countdownComplete(){
+   			alert("Event Ongoing");
+		}
 
 
 
