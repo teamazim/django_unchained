@@ -101,7 +101,7 @@ class Venue(models.Model):
         ('outdoor', 'Outdoor'),
     )
     venueID = models.AutoField(primary_key=True)
-    #venueName = models.CharField(max_length = 50)
+    venueName = models.CharField(max_length = 50)
     venueAddress = models.TextField()
     venueCounty = models.CharField(max_length = 9, choices=COUNTIES)
     venueCountry = models.CharField(max_length = 50)

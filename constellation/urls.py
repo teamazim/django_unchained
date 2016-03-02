@@ -35,4 +35,7 @@ urlpatterns = [
 
     #localhost:8000/constellation/?/getticket/
     # url(r'^(\w+)/getticket/$', views.GetTicket, name='GetTicket'),
+
+    #localhost:8000/constellation/generateticket/
+    url(r'^generateticket/$', views.GenerateTicket, name='GenerateTicket'),
 ]

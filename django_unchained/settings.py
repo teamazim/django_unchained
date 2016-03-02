@@ -96,3 +96,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#sutomated email settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'teamazim829@gmail.com'
+EMAIL_HOST_PASSWORD = 'Spring16'
+EMAIL_PORT = 587
