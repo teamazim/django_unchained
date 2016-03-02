@@ -101,9 +101,11 @@ def Register(request):
 # Munster page
 def Munster(request):
 	event = Event.objects.get(eventID=1)
+	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
 	'head_title': 'Constellation',
 	'event': event,
+	'venue': venue,
 	}
 	return render(request, 'constellation/munster.html', context)
 
@@ -111,9 +113,11 @@ def Munster(request):
 # Leinster page
 def Leinster(request):
 	event = Event.objects.get(eventID=2)
+	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
 	'head_title': 'Constellation',
 	'event': event,
+	'venue': venue,
 	}
 	return render(request, 'constellation/leinster.html', context)
 
@@ -133,9 +137,11 @@ def Ulster(request):
 # Connacht page
 def Connacht(request):
 	event = Event.objects.get(eventID=3)
+	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
 	'head_title': 'Constellation',
 	'event': event,
+	'venue': venue,
 	}
 	return render(request, 'constellation/connacht.html', context)
 
