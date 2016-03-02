@@ -22,7 +22,6 @@ def index(request):
 	if user is not None:
 		profile = UserProfile.objects.get(user=user)
 		context = {
-		'head_title': 'Constellation',
 		'profile': profile,
 		'past': past,
 		'present': present,
@@ -30,7 +29,6 @@ def index(request):
 		}
 	else:
 		context = {
-		'head_title': 'Constellation',
 		'past': past,
 		'present': present,
 		'future': future,
@@ -112,7 +110,6 @@ def Munster(request):
 	event = Event.objects.get(eventID=1)
 	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
-	'head_title': 'Constellation',
 	'event': event,
 	'venue': venue,
 	}
@@ -124,7 +121,6 @@ def Leinster(request):
 	event = Event.objects.get(eventID=2)
 	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
-	'head_title': 'Constellation',
 	'event': event,
 	'venue': venue,
 	}
@@ -136,7 +132,6 @@ def Ulster(request):
 	event = Event.objects.get(eventID=4)
 	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
-	'head_title': 'Constellation',
 	'event': event,
 	'venue': venue,
 	}
@@ -148,7 +143,6 @@ def Connacht(request):
 	event = Event.objects.get(eventID=3)
 	venue = Venue.objects.get( venueID = event.venueID )
 	context = {
-	'head_title': 'Constellation',
 	'event': event,
 	'venue': venue,
 	}
@@ -189,6 +183,7 @@ def GenerateTicket(request, event_id):
 	userProfileObject = UserProfile.objects.get(user_ID = bookingObject.userID)
 	eventObject = Event.objects.get(eventID = event_id)
 	venueObject = Venue.objects.get(venueID =  eventObject.venueID)
+	person = request.user
 
 	HTML_MESSAGE = loader.render_to_string(
 	'../templates/constellation/ticket.html',
@@ -209,7 +204,7 @@ def GenerateTicket(request, event_id):
 	SUBJECT = "Your ticket for " + eventObject.title
 	MESSAGE = ""
 	FROM_EMAIL = settings.EMAIL_HOST_USER
-	TO_EMAIL = ["teamazim829@gmail.com"]
+	TO_EMAIL = [person.email]
 	FAIL_SILENTLY = True
 	send_mail(SUBJECT, MESSAGE, FROM_EMAIL, TO_EMAIL, fail_silently = FAIL_SILENTLY, html_message = HTML_MESSAGE)
 
