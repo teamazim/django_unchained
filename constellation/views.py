@@ -15,16 +15,25 @@ import datetime
 
 # index page
 def index(request):
+	past = Event.objects.get(season = 'spring')
+	present = Event.objects.get(season = 'summer')
+	# future = Event.objects.get(season = 'autumn')
 	user = request.user.id
 	if user is not None:
 		profile = UserProfile.objects.get(user=user)
 		context = {
 		'head_title': 'Constellation',
 		'profile': profile,
+		'past': past,
+		'present': present,
+		# 'future': future,
 		}
 	else:
 		context = {
 		'head_title': 'Constellation',
+		'past': past,
+		'present': present,
+		# 'future': future,
 		}
 	return render(request, 'constellation/home.html', context)
 
