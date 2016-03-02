@@ -14,12 +14,17 @@ import datetime
 
 # index page
 def index(request):
-	user = request.user
-	profile = UserProfile.objects.get(user=user)
-	context = {
-	'head_title': 'Constellation',
-	'profile': profile,
-	}
+	user = request.user.id
+	if user is not None:
+		profile = UserProfile.objects.get(user=user)
+		context = {
+		'head_title': 'Constellation',
+		'profile': profile,
+		}
+	else:
+		context = {
+		'head_title': 'Constellation',
+		}
 	return render(request, 'constellation/home.html', context)
 
 
