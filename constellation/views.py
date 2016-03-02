@@ -176,7 +176,7 @@ def GenerateTicket(request):
                     "first_name": userProfileObject.first_name,
                     "last_name": userProfileObject.last_name,
                     "start_time": eventObject.startTime,
-                    "start_date": eventObject.endTime,
+                    "start_date": eventObject.startDate,
                     "venue_name": venueObject.venueName,
                     "venue_address": venueObject.venueAddress,
                     "venue_county": venueObject.venueCounty

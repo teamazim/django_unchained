@@ -1,8 +1,47 @@
 <HTML>
     <head>
-        <link rel="stylesheet" type="text/css" href="../../static/constellation/css/ticket.css" />
-    </head>
+        <style>
+            body{
+                display: block;
+                margin-right: auto;
+                margin-left: auto;
+                padding-top: 20px;
+                width: 500px;
+            }
 
+            h1, h2{
+                text-align: center;
+            }
+
+            #info{
+                float: right;
+                display: inline-block;
+            }
+
+            #wrap{
+                max-height: 300px;
+            }
+
+            #qr{
+                height: 250px;
+                vertical-align: middle;
+                display: inline-block;
+            }
+
+            img{
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+              padding-left: 20px;
+            }
+
+            small{
+                display: block;
+                color: red;
+                clear: both;
+            }
+        </style>
+    </head>
     <body>
     
         <h1>{{event_title}}</h1>
@@ -14,14 +53,16 @@
             <div id="info">
                 <h3>{{first_name}} {{last_name}}</h3>
                 
-                <p>Start Time: {{start_time}}     {{start_date}}</p>
-                
-                <p>Venue: {{venue_name}}</p>
-                <p>{{venue_address}}</p>
-                <p>{{venue_county}}</p>
+                <p><strong>Start Time:</strong></p>
+                <p>{{start_time}} {{start_date}}</p>
+                <p></p>
+                <p><strong>Venue:</strong></p>
+                <p>{{venue_name}},</p>
+                <p>{{venue_address}},</p>
+                <p>{{venue_county}},</p>
                 <p>Ireland</p>
             </div>
         </div>
-        <small>Please print this email and bring it with you to the event along with valid ID</small>
+        <small>Please print this email and bring it with you to the event. ID may be required </small>
     </body>
 </HTML>
