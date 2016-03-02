@@ -104,26 +104,32 @@ def Munster(request):
 
 # Leinster page
 def Leinster(request):
-    context = {
-        'head_title': 'Constellation',
-    }
-    return render(request, 'constellation/leinster.html', context)
+	event = Event.objects.get(eventID=2)
+	context = {
+	'head_title': 'Constellation',
+	'event': event,
+	}
+	return render(request, 'constellation/leinster.html', context)
 
 
 # Ulster page
 def Ulster(request):
-    context = {
-        'head_title': 'Constellation',
-    }
-    return render(request, 'constellation/ulster.html', context)
+	event = Event.objects.get(eventID=3)
+	context = {
+	'head_title': 'Constellation',
+	'event': event,
+	}
+	return render(request, 'constellation/ulster.html', context)
 
 
 # Connacht page
 def Connacht(request):
-    context = {
-        'head_title': 'Constellation',
-    }
-    return render(request, 'constellation/connacht.html', context)
+	event = Event.objects.get(eventID=4)
+	context = {
+	'head_title': 'Constellation',
+	'event': event,
+	}
+	return render(request, 'constellation/connacht.html', context)
 
 
 def Checkin(request, qr_code):

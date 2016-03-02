@@ -23,7 +23,7 @@
 
               <!-- Jumbotron -->
               <div class="jumbotron">
-                <h1>Hooked! 2016</h1>
+                <h1>{{ event.title }}</h1>
                 <div class="countdown">
                     <script type="application/javascript">
                       var myCountdownTest = new Countdown({
@@ -42,14 +42,12 @@
               <div class="row">
                 <div class="col-lg-4">
                   <h2>Event Info</h2>
-                  <p>Hooked! Killybegs 2016 is a family friendly event which invites you to experience the many sides of the fishing industry in Ireland's premier fishing port. Discover the fascinating history of the boats, factories and people of the town or meet the sea-life face to face with interactive displays! </p>
-                  <p>Watch and marvel at the speed and skill of expert net menders and fish filleters and hear some tall tales from sea going storytellers. It's not all fishy - local entrepreneurs, craftspeople and community groups will be showing off their wares. </p>
-                  <p>Hooked! Killybegs 2016 is a free event run by volunteers and made possible with funding from 'Fisheries Local Action Groups'. With fish, fun and food, there is something for everyone at Hooked! Killybegs 2016.</p>
-                  </div>
+                  <p>{{ event.eventDescription }}</p>
+				 </div>
                   <div class="col-lg-4">
                       <h2>Key Details</h2>
                       <p>
-                          <b>Date:</b> 24 September 2016 </br>
+                          <b>Date:</b> {{ event.startDate }} - {{ event.endDate }}</br>
                           <b>Location:</b> LYIT Killybegs </br>
                       </p>
                       <img src="../../static/constellation/images/ulster.png" width="100%"/>

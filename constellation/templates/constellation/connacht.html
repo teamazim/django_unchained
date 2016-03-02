@@ -23,7 +23,7 @@
               <!-- Jumbotron -->
 
               <div class="jumbotron">
-                <h1>Tour de Conamara</h1>
+                <h1>{{ event.title }}</h1>
                 <div class="countdown">
                     <script type="application/javascript">
                       var myCountdownTest = new Countdown({
@@ -42,14 +42,12 @@
               <div class="row">
                 <div class="col-lg-4">
                   <h2>Event Info</h2>
-                  <p>Tour de Conamara Cycling sportive offering route options of 140km and 80km. Starting and finishing in Clifden, it is considered to be Ireland's most picturesque cycling event.</p>
-                  <p>The event takes in the Wild Atlantic Way before turning into valleys and lakelands against the backdrop of Maumturk Mountains and the Twelve Bens. The finishing stretch to Clifden passes Kylemore Abbey and Killary Harbour to cap off a great day on the bike.</p>
-                  <p>Clifden and Connemra will then entertain you in the Culture de Conamara - fun for all. Cyclists who register before 31 March 2016 will receive an exclusive event jersey.</p>
-                </div>
+                  <p>{{ event.eventDescription }}</p>
+				</div>
                 <div class="col-lg-4">
                     <h2>Key Details</h2>
                     <p>
-                        <b>Date:</b> 28 May 2016 </br>
+                        <b>Date:</b> {{ event.startDate }} - {{ event.endDate }}</br>
                         <b>Location:</b> Clifden </br>
                     </p>
                     <img src="../../static/constellation/images/connacht.png" width="100%"/>

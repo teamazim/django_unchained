@@ -23,7 +23,7 @@
 			  
               <!-- Jumbotron -->
               <div class="jumbotron">
-                <h1>Digital Biscuit</h1>
+                <h1>{{ event.title }}</h1>
                 <div class="countdown">
                     <script type="application/javascript">
                       var myCountdownTest = new Countdown({
@@ -42,14 +42,12 @@
               <div class="row">
                 <div class="col-lg-4">
                   <h2>Event Info</h2>
-                  <p>Digital Biscuit is always an interesting proposition. Looking at the point at which technology and culture collide, it’s of huge value to anybody with a penchant for film, television, or tech.</p>
-                  <p>Previous years have seen directors Michel Gondry and David Yates speak at the event, as well as creators like David Chase, and producers such as Borgen’s Camilla Hammerich featuring. </p>
-                  <p>If you are keen on film and television and the business behind it, you will really love Digital Biscuit. It’s a brilliant occasion that brings professionals together and looks at the future on the silver and small screens. </p>
-                  </div>
+                  <p>{{ event.eventDescription }}</p>
+				 </div>
                   <div class="col-lg-4">
                       <h2>Key Details</h2>
                       <p>
-                          <b>Date:</b> 20 - 22 October 2016 </br>
+                          <b>Date:</b> {{ event.startDate }} - {{ event.endDate }}</br>
                           <b>Location:</b> Point Village, Dublin </br>
                       </p>
                       <img src="../../static/constellation/images/leinster.png" width="100%"/>
