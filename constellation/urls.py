@@ -37,5 +37,5 @@ urlpatterns = [
     # url(r'^(\w+)/getticket/$', views.GetTicket, name='GetTicket'),
 
     #localhost:8000/constellation/generateticket/
-    url(r'^generateticket/$', views.GenerateTicket, name='GenerateTicket'),
+    url(r'^generateticket/(?P<event_id>[0-9]+)/$', views.GenerateTicket, name='GenerateTicket'),
 ]

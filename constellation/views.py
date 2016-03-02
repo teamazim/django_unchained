@@ -183,11 +183,11 @@ def Checkin(request, qr_code):
 
 #AT THE MOMENT MISSING HOW TO GET THE CURRENT BOOKING ID AND ALSO A PATH TO THE HTML TEMPLATE
 #Generates a ticket from a particular booking ID
-def GenerateTicket(request):
+def GenerateTicket(request, event_id):
 	bookingObject = Booking.objects.get(bookingID = 1)
 
 	userProfileObject = UserProfile.objects.get(user_ID = bookingObject.userID)
-	eventObject = Event.objects.get(eventID = bookingObject.eventID)
+	eventObject = Event.objects.get(eventID = event_id)
 	venueObject = Venue.objects.get(venueID =  eventObject.venueID)
 
 	HTML_MESSAGE = loader.render_to_string(
