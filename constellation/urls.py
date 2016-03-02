@@ -37,5 +37,10 @@ urlpatterns = [
     # url(r'^(\w+)/getticket/$', views.GetTicket, name='GetTicket'),
 
     #localhost:8000/constellation/generateticket/
-    url(r'^generateticket/(?P<event_id>[0-9]+)/$', views.GenerateTicket, name='GenerateTicket'),
+    url(r'^generateticket/$', views.GenerateTicket, name='GenerateTicket'),
+    
+    url(r'^reset/password_reset/$', 'django.contrib.auth.views.password_reset', name='reset_password_reset1'),
+    url(r'^reset/password_reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
+    url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
 ]
