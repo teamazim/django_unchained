@@ -24,7 +24,7 @@
 	
 	<!-- Jumbotron -->
 		<div class="jumbotron">
-		<h1>West Cork Rally 2016</h1>
+		<h1>{{ event.title }}</h1>
 		<div class="countdown">
 			<script type="application/javascript">
 				var myCountdownTest = new Countdown({
@@ -44,16 +44,14 @@
 		<div class="row">
 		<div class="col-lg-4">
 		  <h2>Event Info</h2>
-		  <p>The West Cork Rally is a two day international car rally, run over 14 stages of rugged coastline and countryside.</p>
-		  <p>The event boasts one of the largest entries of a two day rally in the British Isles and has a large percentage of overseas entries, peaking with 70 out of 200 entries coming from abroad. </p>
-          <p>Based in the picturesque tourist town of Clonakilty since its inception 37 years ago, the West Cork Rally signals the kick-off of the tourist season in the area. Visitors to Clonakilty can enjoy numerous award winning restaurants, pubs and hotels, along with the natural beauty of its beaches and countryside.</p>
+		  <p>{{ event.eventDescription }}</p>
 		</div>
         <div class="col-lg-4">
             <h2>Key Details</h2>
             <div class="polaroid">
             <img src="../../static/constellation/images/munster.png" width="100%"/>
             <p>
-                <b>Date:</b> 12 - 13 March 2016 </br>
+                <b>Date:</b> {{ event.startDate }} - {{ event.endDate }}</br>
                 <b>Location:</b> Clonakilty </br>
             </p>
         	</div>

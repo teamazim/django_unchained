@@ -18,7 +18,7 @@ def index(request):
 	profile = UserProfile.objects.get(user=user)
 	context = {
 	'head_title': 'Constellation',
-	'profile': profile
+	'profile': profile,
 	}
 	return render(request, 'constellation/home.html', context)
 
@@ -94,9 +94,10 @@ def Register(request):
 
 # Munster page
 def Munster(request):
-	#event = Event.objects.get(season='Spring')
+	event = Event.objects.get(eventID=1)
 	context = {
 	'head_title': 'Constellation',
+	'event': event,
 	}
 	return render(request, 'constellation/munster.html', context)
 
