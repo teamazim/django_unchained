@@ -114,7 +114,7 @@ def Leinster(request):
 
 # Ulster page
 def Ulster(request):
-	event = Event.objects.get(eventID=3)
+	event = Event.objects.get(eventID=4)
 	context = {
 	'head_title': 'Constellation',
 	'event': event,
@@ -124,7 +124,7 @@ def Ulster(request):
 
 # Connacht page
 def Connacht(request):
-	event = Event.objects.get(eventID=4)
+	event = Event.objects.get(eventID=3)
 	context = {
 	'head_title': 'Constellation',
 	'event': event,
