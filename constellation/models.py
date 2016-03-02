@@ -62,10 +62,9 @@ class UserProfiles(models.Model):
     userAddress = models.TextField()
     userCounty = models.CharField(max_length = 9, choices=COUNTIES)
     userCountry = models.CharField(max_length = 50)
-    phone = models.CharField(max_length = 20)
+    phone = models.CharField(max_length = 20, null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDERS)
     language = models.CharField(max_length = 50)
-    nickname = models.CharField(max_length = 50)
 
 class Event(models.Model):
 	SEASONS = (
@@ -83,8 +82,8 @@ class Event(models.Model):
 	endDate = models.DateField()
 	venueID = models.IntegerField()
 	season = models.CharField(max_length=6, choices=SEASONS)
-	notesID = models.IntegerField()
-	availability = models.IntegerField()
+	notesID = models.IntegerField(null=True, blank=True)
+	availability = models.IntegerField(null=True, blank=True)
 
 	def __str__(self):              # __unicode__ on Python 2
 		return self.title
@@ -124,7 +123,7 @@ class Booking(models.Model):
     bookingID = models.AutoField(primary_key=True)
     userID = models.IntegerField()
     eventID = models.IntegerField()
-    qrCode = models.CharField(max_length = 20)
+    qrCode = models.CharField(max_length = 20, null=True, blank=True)
     confirmed = models.BooleanField(default = False)
-    checkinTime = models.TimeField()
-    checkinDate = models.DateField()
+    checkinTime = models.TimeField(null=True, blank=True)
+    checkinDate = models.DateField(null=True, blank=True)
