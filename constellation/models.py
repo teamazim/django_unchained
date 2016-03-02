@@ -102,6 +102,7 @@ class Venue(models.Model):
         ('outdoor', 'Outdoor'),
     )
     venueID = models.AutoField(primary_key=True)
+    venueName = models.CharField(max_length = 50)
     venueAddress = models.TextField()
     venueCounty = models.CharField(max_length = 9, choices=COUNTIES)
     venueCountry = models.CharField(max_length = 50)
@@ -124,6 +125,6 @@ class Booking(models.Model):
     userID = models.IntegerField()
     eventID = models.IntegerField()
     qrCode = models.CharField(max_length = 20)
-    confirmed = models.BooleanField()
+    confirmed = models.BooleanField(default = False)
     checkinTime = models.TimeField()
     checkinDate = models.DateField()
