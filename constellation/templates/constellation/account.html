@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block customstylesheet %}
+	<link rel="stylesheet" type="text/css" href="{% static 'constellation/css/account.css' %}" />
+	
+{% endblock %}
+{% block content %}
+
+	<div class="masthead clearfix">
+		<div class="inner">
+			<h3 class="masthead-brand">Constellation <small>Connecting &Eacute;ire</small></h3>
+			<nav>
+				<ul class="nav masthead-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="/constellation/munster/">Munster</a></li>
+					<li><a href="/constellation/leinster/">Leinster</a></li>
+					<li><a href="/constellation/connacht/">Connacht</a></li>
+					<li><a href="/constellation/ulster/">Ulster</a></li>
+					<li><a href="#" id="contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	
+	  <div class="container ">
+		{% if user.username %}
+            <h2>Welcome to Constellation!</h2>
+            <h3>Account Info</h3>
+            
+            <form class="form-inline">
+
+              <div class="form-group">
+                <h3> Personal Information</h3>
+                <p><label for="first_name" >First name:</label>
+				<input disabled id="first_name" type="text" name="first_name" class="form-control" placeholder="{{ profile.first_name }}"/>
+				
+				<p><label for="surname" >Surname:</label>
+				<input disabled id="surname" type="text" name="surname" class="form-control" placeholder="{{ profile.last_name }}"/>
+				
+				<p><label for="age" >Age:</label>
+				<input disabled type="text" name="age" class="form-control" placeholder="{{ profile.age }}"/>
+				
+				<p><label for="telephone" >Telephone:</label>
+				<input disabled type="tel" name="telephone" class="form-control" placeholder="{{ profile.telephone }}"/>
+				
+               </div>
+               
+                <div class="form-group">
+                    <h3> Address</h3>
+                    <p><label for="addr_line_1"  >Address Line 1:</label>
+                    <input disabled id="addr_line_1" type="text" name="addr_line_1" class="form-control" placeholder="{{ profile.addr_line_1 }}"/>
+                    
+                    <p><label for="addr_line_2" >Address Line 2:</label>
+                    <input disabled id="addr_line_2" type="text" name="addr_line_2" class="form-control" placeholder="{{ profile.addr_line_2 }}"/>
+                    
+                    <p><label for="county" >County:</label>
+                    <input disabled type="text" name="county" class="form-control" placeholder="{{ profile.county }}"/>
+                    
+                    <p><label for="country" >Country:</label>
+                    <input disabled type="text" name="country" class="form-control" placeholder="{{ profile.country }}"/>
+                </div>
+            </div>
+            
+		{% else %}
+			<h1>Welcome to Constellation!</h1>
+			<p class="lead">You need to log in to view your account information.</p>
+			<p><a class="btn btn-lg btn-success" href="/constellation/register" role="button">Register Now!</a></p>
+		{% endif %}
+	  </div>
+
+
+{% endblock %}
