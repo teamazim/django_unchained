@@ -235,3 +235,5 @@ def GetTicket(request, province):
         #newBooking.save()
         #Call generate ticket method passing through the booking ID
         return HttpResponse(province)
+        
+        
