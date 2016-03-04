@@ -59,6 +59,17 @@
                     <p><label for="country" >Country:</label>
                     <input disabled type="text" name="country" class="form-control" placeholder="{{ profile.country }}"/>
                 </div>
+                
+                    <div class="form-group">
+                    <h3> Password</h3>
+                    <a href="{% url 'reset_password_reset1' %}"> Reset you password </a>
+                    <br/><br/><br/>
+                    <br/><br/><br/>
+                    <br/><br/><br/><br/>
+
+                    
+                </div>
+                
             </div>
             
 		{% else %}
@@ -67,7 +78,7 @@
 			<p><a class="btn btn-lg btn-success" href="/constellation/register" role="button">Register Now!</a> OR   
              <a class="btn btn-lg btn-success" href="/constellation/login" role="button">Login</a></p>
 		{% endif %}
-	  </div>
+
 
 
 {% endblock %}
