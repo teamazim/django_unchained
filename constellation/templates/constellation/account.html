@@ -25,7 +25,7 @@
 	  <div class="container ">
 		{% if user.username %}
             <h2>Welcome to Constellation!</h2>
-            <h3>Account Info</h3>
+            <h3>Account Information</h3>
             
             <form class="form-inline">
 
@@ -62,9 +62,10 @@
             </div>
             
 		{% else %}
-			<h1>Welcome to Constellation!</h1>
-			<p class="lead">You need to log in to view your account information.</p>
-			<p><a class="btn btn-lg btn-success" href="/constellation/register" role="button">Register Now!</a></p>
+			<h2>Welcome to Constellation!</h2>
+			<p >You need to log in to view your account information.</p>
+			<p><a class="btn btn-lg btn-success" href="/constellation/register" role="button">Register Now!</a> OR   
+             <a class="btn btn-lg btn-success" href="/constellation/login" role="button">Login</a></p>
 		{% endif %}
 	  </div>
 

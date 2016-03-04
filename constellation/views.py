@@ -235,13 +235,16 @@ def GetTicket(request, province):
         #newBooking.save()
         #Call generate ticket method passing through the booking ID
         return HttpResponse(province)
-        
+ 
+ 
 def Account(request):
-	user = request.user.id
-	if user is not None:
-		profile = UserProfile.objects.get(user=user)
-		context = {
-		'profile': profile,
+    user = request.user.id
+    if user is not None:
+        profile = UserProfile.objects.get(user=user)
+        context = {
+        'profile': profile,
+        }
+    else:
+        context = {
 		}
-
-	return render(request, 'constellation/account.html', context)      
+    return render(request, 'constellation/account.html', context)       
