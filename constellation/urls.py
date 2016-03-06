@@ -4,6 +4,8 @@
 
 from django.conf.urls import url
 from . import views
+from django.conf import settings
+from django.conf.urls import include, patterns, url
 
 urlpatterns = [
 	#localhost:8000/constellation
@@ -48,6 +50,10 @@ urlpatterns = [
     url(r'^reset/password_reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
-    
-    
+      
 ]
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += patterns('',
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    )
