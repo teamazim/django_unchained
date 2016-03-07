@@ -110,7 +110,7 @@ def Munster(request):
     munsterCounties = County.objects.filter(province = "munster").values_list('countyName', flat=True)
     venues = Venue.objects.filter(venueCounty__in= munsterCounties).values_list('venueID', flat=True)
     allVenues = Venue.objects.filter(venueCounty__in= munsterCounties)
-    events = Event.objects.filter(venueID__in= venues)
+    events = Event.objects.filter(venueID__in= venues).order_by('startDate')
     context = {
         "object_list": events,
 		"venue_list": allVenues,
