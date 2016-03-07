@@ -34,7 +34,7 @@ urlpatterns = [
 	url(r'^ulster/$', views.Ulster, name='Ulster'),
 
     #localhost:8000/constellation/?/checkin/
-    url(r'^(?P<qr_code>[0-999999999]+)/checkin/$', views.Checkin, name='Checkin'),
+    url(r'^(?P<qr_code>[0-999999999]+)/checkin$', views.Checkin, name='Checkin'),
 
     #localhost:8000/constellation/?/getticket/
     # url(r'^(\w+)/getticket/$', views.GetTicket, name='GetTicket'),
