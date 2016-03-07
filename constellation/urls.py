@@ -39,9 +39,9 @@ urlpatterns = [
     #localhost:8000/constellation/?/getticket/
     # url(r'^(\w+)/getticket/$', views.GetTicket, name='GetTicket'),
 
-    #localhost:8000/constellation/generateticket/
-    url(r'^generateticket/$', views.GenerateTicket, name='GenerateTicket'),
-    
+    #localhost:8000/constellation/generateticket/?
+    url(r'^generateticket/(?P<event_id>[0-999999999]+)$', views.GenerateTicket, name='GenerateTicket'),
+
     #
     url(r'^account/$', views.Account, name='Account'),
     

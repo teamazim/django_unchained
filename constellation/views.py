@@ -15,9 +15,9 @@ import datetime
 
 # index page
 def index(request):
-	past = Event.objects.get(season = 'spring')
-	present = Event.objects.get(season = 'summer')
-	future = Event.objects.get(season = 'winter')
+	past = Event.objects.filter(season = 'spring').order_by('startDate').first()
+	present = Event.objects.filter(season = 'summer').order_by('startDate').first()
+	future = Event.objects.filter(season = 'winter').order_by('startDate').first()
 	user = request.user.id
 	if user is not None:
 		profile = UserProfile.objects.get(user=user)
@@ -180,12 +180,18 @@ def Checkin(request, qr_code):
 #AT THE MOMENT MISSING HOW TO GET THE CURRENT BOOKING ID AND ALSO A PATH TO THE HTML TEMPLATE
 #Generates a ticket from a particular booking ID
 def GenerateTicket(request, event_id):
-	bookingObject = Booking.objects.get(bookingID = 1)
-
-	userProfileObject = UserProfile.objects.get(user_ID = bookingObject.userID)
-	eventObject = Event.objects.get(eventID = event_id)
-	venueObject = Venue.objects.get(venueID =  eventObject.venueID)
 	person = request.user
+	userProfileObject = UserProfile.objects.get(user = person)
+	if Booking.objects.filter(userID = userProfileObject.user_ID, eventID = event_id).exists():
+		bookingObject = Booking.objects.get(userID = userProfileObject.user_ID, eventID = event_id)
+	else:
+		bookingObject = Booking(userID = userProfileObject.user_ID, eventID = event_id)
+		bookingObject.save()
+		bookingObject.qrCode = str(bookingObject.bookingID) + str(bookingObject.userID) + str(bookingObject.eventID)
+		bookingObject.save()
+
+	eventObject = Event.objects.get(eventID = event_id)
+	venueObject = Venue.objects.get(venueID = eventObject.venueID)
 
 	HTML_MESSAGE = loader.render_to_string(
 	'../templates/constellation/ticket.html',
@@ -224,7 +230,57 @@ def GenerateTicket(request, event_id):
 		'event': eventObject,
 		'venue': venueObject,
 		}
+	GenerateNameBadge(request, event_id)
 	return render(request, 'constellation/success.html', context)
+
+
+
+
+def GenerateNameBadge(request, event_id):
+	person = request.user
+	userProfileObject = UserProfile.objects.get(user = person)
+	if Booking.objects.filter(userID = userProfileObject.user_ID, eventID = event_id).exists():
+		bookingObject = Booking.objects.get(userID = userProfileObject.user_ID, eventID = event_id)
+	else:
+		bookingObject = Booking(userID = userProfileObject.user_ID, eventID = event_id)
+		bookingObject.save()
+		bookingObject.qrCode = str(bookingObject.bookingID) + str(bookingObject.userID) + str(bookingObject.eventID)
+		bookingObject.save()
+
+	eventObject = Event.objects.get(eventID = event_id)
+
+	HTML_MESSAGE = loader.render_to_string(
+	'../templates/constellation/name_badge.html',
+	{
+	"event_title": eventObject.title,
+	"first_name": userProfileObject.first_name,
+	"last_name": userProfileObject.last_name,
+	"qr_code": str(bookingObject.bookingID) + str(bookingObject.userID) + str(bookingObject.eventID)
+	}
+	)
+
+	SUBJECT = "Your name badge for " + eventObject.title
+	MESSAGE = ""
+	FROM_EMAIL = settings.EMAIL_HOST_USER
+	TO_EMAIL = [person.email]
+	FAIL_SILENTLY = True
+	send_mail(SUBJECT, MESSAGE, FROM_EMAIL, TO_EMAIL, fail_silently = FAIL_SILENTLY, html_message = HTML_MESSAGE)
+
+	user = request.user.id
+	if user is not None:
+		profile = UserProfile.objects.get(user=user)
+		context = {
+		'profile': profile,
+		'event': eventObject,
+		}
+	else:
+		context = {
+		'head_title': 'Constellation',
+		'event': eventObject,
+		}
+	return render(request, 'constellation/success.html', context)
+
+
 
 #AT THE MOMENT THIS JUST RETURNS THE NAME OF THE PROVINCE BUT COULD LEAD TO PAGE OF ALL EVENTS
 #Ticket page where a ticket booking is made and a call to generate a ticket is made
