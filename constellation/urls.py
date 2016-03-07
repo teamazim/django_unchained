@@ -8,7 +8,10 @@ from django.conf import settings
 from django.conf.urls import include, patterns, url
 
 urlpatterns = [
-		
+	
+	#localhost:8000/constellation
+	url(r'^$', views.index, name='index'),	
+ 
 	#localhost:8000/constellation/login 
 	url(r'^login/$', views.Login, name='Login'),
 	
