@@ -107,13 +107,15 @@ def Register(request):
 
 # Munster page
 def Munster(request):
-	event = Event.objects.get(eventID=1)
-	venue = Venue.objects.get( venueID = event.venueID )
-	context = {
-	'event': event,
-	'venue': venue,
-	}
-	return render(request, 'constellation/munster.html', context)
+    munsterCounties = County.objects.filter(province = "munster").values_list('countyName', flat=True)
+    venues = Venue.objects.filter(venueCounty__in= munsterCounties).values_list('venueID', flat=True)
+    allVenues = Venue.objects.filter(venueCounty__in= munsterCounties)
+    events = Event.objects.filter(venueID__in= venues)
+    context = {
+        "object_list": events,
+		"venue_list": allVenues,
+    }
+    return render(request, 'constellation/munster.html', context)
 
 
 # Leinster page
