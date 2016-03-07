@@ -10,4 +10,7 @@ urlpatterns = [
 	
 	#localhost:8000/admin
 	url(r'^admin/', include(admin.site.urls)),
+
+	url(r'^', 'constellation.views.index'),
+
 ]
