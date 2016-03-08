@@ -152,29 +152,31 @@ def Connacht(request):
 
 
 #Checkin page where a scanned qr code takes you to validate that particular code
+#Checkin page where a scanned qr code takes you to validate that particular code
 def Checkin(request, qr_code):
-    if Booking.objects.filter(qrCode = qr_code).exists():
-        now = datetime.datetime.now().replace(microsecond=0)
-        bookingObject = Booking.objects.get(qrCode = qr_code)
-        userProfileObject = UserProfile.objects.get(id = bookingObject.userID)
-        eventObject = Event.objects.get(eventID = bookingObject.eventID)
-        if eventObject.startDate == now:
-            if bookingObject.confirmed == False:
-                bookingObject.confirmed = True
-                bookingObject.checkinDate = now
-                bookingObject.checkinTime = now
-                bookingObject.save()
-                html = "<html><head>Checked-In</head><body><p>%s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, now)
-                return HttpResponse(html)
-            else:
-                html = "<html><head>Already Checked-In</head><body><p>%s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, bookingObject.checkinTime)
-                return HttpResponse(html)
-        else:
-            html = "<html><head>The event \"%s\" hasn't started yet.</head><body><p>Please check in when the event starts on %s.</body></html>" % (eventObject.title, eventObject.startDate)
-            return HttpResponse(html)
-    else:
-        html = "<html><head>Invalid QR Code</head><body><p>%s does not match any booking.</body></html>" % qr_code
-        return HttpResponse(html)
+	if Booking.objects.filter(qrCode = qr_code).exists():
+		now = datetime.datetime.now().replace(microsecond=0)
+		currentDate = datetime.date.today()
+		bookingObject = Booking.objects.get(qrCode = qr_code)
+		userProfileObject = UserProfile.objects.get(user_id = bookingObject.userID)
+		eventObject = Event.objects.get(eventID = bookingObject.eventID)
+		if eventObject.startDate == currentDate:
+			if bookingObject.confirmed == False:
+				bookingObject.confirmed = True
+				bookingObject.checkinDate = now
+				bookingObject.checkinTime = now
+				bookingObject.save()
+				html = "<html><head>Checked-In</head><body><p>%s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, now)
+				return HttpResponse(html)
+			else:
+				html = "<html><head>Already Checked-In</head><body><p>%s %s Checked in at %s.</body></html>" % (userProfileObject.first_name, userProfileObject.last_name, bookingObject.checkinTime)
+				return HttpResponse(html)
+		else:
+			html = "<html><head>The event \"%s\" hasn't started yet.</head><body><p>Please check in when the event starts on %s.</body></html>" % (eventObject.title, eventObject.startDate)
+			return HttpResponse(html)
+	else:
+		html = "<html><head>Invalid QR Code</head><body><p>%s does not match any booking.</body></html>" % qr_code
+		return HttpResponse(html)
 
 
 #AT THE MOMENT MISSING HOW TO GET THE CURRENT BOOKING ID AND ALSO A PATH TO THE HTML TEMPLATE
