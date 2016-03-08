@@ -63,7 +63,13 @@ def Login(request):
 
 # First time user registration page
 def Register(request):
+    past = Event.objects.filter(season = 'spring').order_by('startDate').first()
+    present = Event.objects.filter(season = 'summer').order_by('startDate').first()
+    future = Event.objects.filter(season = 'winter').order_by('startDate').first()
     context = {
+    'past': past,
+    'present': present,
+    'future': future,
     }
     if request.method == 'POST':
         username = request.POST['id_username']
@@ -79,22 +85,22 @@ def Register(request):
         country = request.POST['country']
 
         user = User.objects.create_user(
-                username=username,
-                email=email,
-                password=password
+        username=username,
+        email=email,
+        password=password
         )
         user.save()  # Create and save user
 
         user_profile = UserProfile(
-                user=user,
-                first_name=first_name,
-                last_name=last_name,
-                age=age,
-                telephone=telephone,
-                addr_line_1=addr_line_1,
-                addr_line_2=addr_line_2,
-                county=county,
-                country=country,
+        user=user,
+        first_name=first_name,
+        last_name=last_name,
+        age=age,
+        telephone=telephone,
+        addr_line_1=addr_line_1,
+        addr_line_2=addr_line_2,
+        county=county,
+        country=country,
         )
         user_profile.save()  # create and save user profile
 
