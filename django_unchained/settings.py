@@ -73,8 +73,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'django_unchained.urls'
 
 # debug toolbar wont automatically adjust settings
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-
+DEBUG_TOOLBAR_PATCH_SETTINGS = True 
 WSGI_APPLICATION = 'django_unchained.wsgi.application'
 
 
