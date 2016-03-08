@@ -63,5 +63,15 @@
                   <h2>Location</h2>
                   <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=hotels%20near%20killybegs&key=AIzaSyAa9sdVaauIjfa-wRRvz-lETns_aei48dY" allowfullscreen></iframe>
                 </div>
+		 {% if event.youtubeVideoID %}
+                        <div class="row">
+                                <div id="eventvideo">
+                                        <iframe id="ytplayer" type="text/html" width="640" height="390"
+                                         src="http://www.youtube.com/embed/{{ event.youtubeVideoID }}?autoplay=0"
+                                        frameborder="0"></iframe>
+                                </div>
+                        </div>
+                {% endif %}
+
               </div>
 {% endblock %}

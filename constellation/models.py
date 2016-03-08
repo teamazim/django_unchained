@@ -85,6 +85,7 @@ class Event(models.Model):
 	season = models.CharField(max_length=6, choices=SEASONS)
 	notesID = models.IntegerField(null=True, blank=True)
 	availability = models.IntegerField(null=True, blank=True)
+	youtubeVideoID = models.CharField(max_length=20, blank=True)
 
 	def __str__(self):              # __unicode__ on Python 2
 		return self.title
@@ -136,3 +137,4 @@ class Booking(models.Model):
     confirmed = models.BooleanField(default = False)
     checkinTime = models.TimeField(null=True, blank=True)
     checkinDate = models.DateField(null=True, blank=True)
+
